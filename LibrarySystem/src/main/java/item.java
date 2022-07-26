@@ -9,6 +9,7 @@ public abstract class item {
     Boolean renewed;
     float value;
     int checkoutTime;
+    String author;
     
     //setters n getters!
     

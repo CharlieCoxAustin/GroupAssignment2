@@ -2,7 +2,7 @@
 public class audioVideoMaterial extends item{
     String checkoutDate;
     
-    public audioVideoMaterial(int number, String itemTitle)
+    public audioVideoMaterial(int number, String itemTitle, String itemAuthor)
     {
         checkedOut = false;
         itemNumber = number;
@@ -11,6 +11,13 @@ public class audioVideoMaterial extends item{
         renewed = false;
         value = 0;
         checkoutTime = 14;
+        author = itemAuthor;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "audioVideoMaterial";
     }
     
 }

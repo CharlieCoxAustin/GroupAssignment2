@@ -1,16 +1,23 @@
 
 public class referenceBook extends item{
     
-    public referenceBook(int number, String itemTitle)
+    public referenceBook(int number, String itemTitle, String itemAuthor)
     {
         checkedOut = false;
         itemNumber = number;
         title = itemTitle;
-        checkoutDate = "This cannot be rented";
+        checkoutDate = "unrentable";
         requested = false;
         renewed = false;
         value = 0;
         checkoutTime = 0;
+        author = itemAuthor;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "referencebook";
     }
     
 }

@@ -1,17 +1,25 @@
 
 public class book extends item {
     
-        String checkoutDate;
         
-    public book(int number, String itemTitle)
+        
+    public book(int number, String itemTitle, String itemAuthor)
     {
         checkedOut = false;
         itemNumber = number;
         title = itemTitle;
         requested = false;
+        checkoutDate = "today";
+        author = itemAuthor;
         renewed = false;
         value = 0;
         checkoutTime = 21;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "book";
     }
     
 }

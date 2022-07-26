@@ -1,13 +1,24 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
 public class mainScreen {
     
+    BufferedWriter libraryWriter;
+    
+    
     public mainScreen(librarySystem library)
     {
+        
         //initializing GUI elements
         JFrame frame = new JFrame("Library System");
         JPanel panel = new JPanel();
@@ -33,6 +44,39 @@ public class mainScreen {
         {
              public void actionPerformed(ActionEvent e)
              {
+                 
+                 try 
+                 {
+                     libraryWriter = new BufferedWriter(new FileWriter("itemList.txt"));
+                     
+                     
+                     library.itemMap.forEach((k, v) -> 
+                     {
+                         try {
+                             libraryWriter.write(v.toString() + " " + v.title + " " + v.author + " " + v.itemNumber + " " +
+                                     v.checkoutDate + " " + v.checkedOut + " " + v.renewed + " " + v.requested + "\n");
+                             } 
+                             catch (IOException ex) 
+                             {
+                             Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                             }
+                     });
+                     
+                 } 
+                 catch (IOException ex) 
+                 {
+                     Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                
+                 try 
+                 {
+                     libraryWriter.close();
+                 } 
+                 catch (IOException ex) 
+                 {
+                     Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                         
                 frame.dispose();
              }
         });

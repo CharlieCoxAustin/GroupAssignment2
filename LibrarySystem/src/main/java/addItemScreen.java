@@ -20,6 +20,8 @@ public class addItemScreen {
         JTextField itemNumberField = new JTextField("Item #");
         JButton addItem = new JButton("Add Item");
         JButton cancel = new JButton("Cancel");
+        JLabel authorLabel = new JLabel("Author");
+        JTextField authorField = new JTextField("author");
         
         
         //setting up combo box for drop down
@@ -31,9 +33,11 @@ public class addItemScreen {
         titleField.setBounds(110, 20, 150, 30);
         itemNumberLabel.setBounds(20, 70, 100, 30);
         itemNumberField.setBounds(110, 70, 150, 30);
-        dropDown.setBounds(20, 130, 150, 30);
+        dropDown.setBounds(20, 200, 150, 30);
         addItem.setBounds(20, 250, 150, 30);
         cancel.setBounds(180, 250, 150, 30);
+        authorLabel.setBounds(20, 130, 50, 30);
+        authorField.setBounds(110, 130, 150, 30);
         
         //making buttons and dropdown work
         dropDown.addActionListener(new ActionListener()
@@ -51,25 +55,26 @@ public class addItemScreen {
             {
                 int number = Integer.parseInt(itemNumberField.getText());
                 String name = titleField.getText();
+                String author = authorField.getText();
                 item newItem = null;
                 itemType = (String)dropDown.getSelectedItem();
                 
                  switch(itemType)
                  {
                      case "reference book" :
-                         newItem = new referenceBook(number, name); 
+                         newItem = new referenceBook(number, name, author); 
                          break;
                      case "book" :
-                         newItem = new book(number, name);
+                         newItem = new book(number, name, author);
                          break;
                      case "best seller" :
-                         newItem = new currentBestSeller(number, name);
+                         newItem = new currentBestSeller(number, name, author);
                          break;
                      case "A/V item" :
-                         newItem = new audioVideoMaterial(number, name);
+                         newItem = new audioVideoMaterial(number, name, author);
                          break;
                      case "magazine" :
-                         newItem = new magazine(number, name);
+                         newItem = new magazine(number, name, author);
                          break;
                  }
                  
@@ -97,6 +102,8 @@ public class addItemScreen {
         panel.add(dropDown);
         panel.add(addItem);
         panel.add(cancel);
+        panel.add(authorLabel);
+        panel.add(authorField);
         
         frame.setSize(350,350);
         frame.add(panel);

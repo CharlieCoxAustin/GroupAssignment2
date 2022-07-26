@@ -1,6 +1,12 @@
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class librarySystem {
@@ -8,9 +14,66 @@ public class librarySystem {
     HashMap <String, item> itemMap = new HashMap<>();
     HashMap <String, User> userMap = new HashMap<>();
     
-    public librarySystem()
-    {
+    BufferedReader libraryReader; 
+    
         
+    
+    public librarySystem() throws FileNotFoundException, IOException
+    {
+        libraryReader = new BufferedReader(new FileReader("itemList.txt"));
+         System.out.println("file opened");
+        String line;
+        while((line = libraryReader.readLine()) != null)
+        {
+            System.out.println(line);
+            String[] stringArray = line.split(" ", 0);
+            String type = stringArray[0];
+            String title = stringArray[1];
+            String author = stringArray[2];
+            int number = Integer.parseInt(stringArray[3]);
+            String checkoutDate = stringArray[4];
+            Boolean checkedOut = Boolean.parseBoolean(stringArray[5]);
+            Boolean renewed = Boolean.parseBoolean(stringArray[6]);
+            Boolean requested = Boolean.parseBoolean(stringArray[7]);
+            
+            System.out.println("file opened and read from");
+            System.out.println(line);
+            item newItem = null;
+            
+            switch(type) 
+            {
+                case "book" :
+                    newItem = new book(number, title, author);
+                    break;
+                case "audioVideoMaterial" :
+                    newItem = new audioVideoMaterial(number, title, author);
+                    break;
+                case "currentBestSeller" :
+                    newItem = new currentBestSeller(number, title, author);
+                    break;
+                case "referencebook" :
+                    newItem = new referenceBook(number, title, author);
+                    break;    
+                case "magazine" : 
+                    newItem = new magazine(number, title, author);
+                    break;
+            }
+            
+            newItem.setCheckedOut(checkedOut);
+            newItem.setRenewed(renewed);
+            newItem.setRequested(requested);
+            newItem.setCheckoutDate(checkoutDate);
+            
+            itemMap.put(newItem.title, newItem);
+            
+        }
+        
+        itemMap.forEach((k, v) ->
+        { 
+            System.out.println(v.title); 
+        }); 
+        
+        libraryReader.close();
     }
     
     public void addItem(item itemAdd)

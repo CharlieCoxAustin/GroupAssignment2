@@ -1,17 +1,24 @@
 
 public class magazine extends item{
     
-    public magazine(int number, String itemTitle)
+    public magazine(int number, String itemTitle, String itemAuthor)
     {
         checkedOut = false;
         itemNumber = number;
         title = itemTitle;
-        checkoutDate = "Cannot be checked out";
+        checkoutDate = "unrentable";
         requested = false;
         renewed = false;
         value = 0;
         checkoutTime = 0;
+        author = itemAuthor;
         
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "magazine";
     }
     
 }
