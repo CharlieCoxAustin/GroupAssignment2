@@ -1,7 +1,7 @@
 
 public class magazine extends item{
     
-    public magazine(int number, String itemTitle )
+    public magazine(int number, String itemTitle)
     {
         checkedOut = false;
         itemNumber = number;

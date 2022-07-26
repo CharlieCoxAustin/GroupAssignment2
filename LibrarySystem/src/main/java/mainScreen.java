@@ -13,6 +13,8 @@ public class mainScreen {
         JPanel panel = new JPanel();
         JButton addUser = new JButton("Add User");
         JButton addItem = new JButton("Add Item");
+        JButton findUser = new JButton("Find User");
+        JButton findItem = new JButton("Find Item");
         JButton quit = new JButton("Quit");
         JLabel title = new JLabel("Library System");
         
@@ -21,6 +23,8 @@ public class mainScreen {
         frame.setSize(400, 400);
         addUser.setBounds(20, 100, 100, 30);
         addItem.setBounds(140, 100, 100, 30);
+        findUser.setBounds(20, 140, 100, 30);
+        findItem.setBounds(140, 140, 100, 30);
         quit.setBounds(260, 100, 100, 30);
         title.setBounds(150, 10, 100, 30);
         
@@ -37,7 +41,7 @@ public class mainScreen {
         {
             public void actionPerformed(ActionEvent e)
             {
-                //will open screen to add a new user.
+                addUserScreen newUser = new addUserScreen(library);
             }
         });
         
@@ -45,13 +49,31 @@ public class mainScreen {
         {
             public void actionPerformed(ActionEvent e)
             {
-                //will open screen to add a new Item.
+                addItemScreen newItem = new addItemScreen(library);
+            }
+        });
+        
+        findUser.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                //will open screen to find a user.
+            }
+        });
+        
+        findItem.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                //will open screen to find an Item.
             }
         });
         
         //adding to panel
         panel.add(addUser);
         panel.add(addItem);
+        panel.add(findUser);
+        panel.add(findItem);
         panel.add(quit);
         frame.add(panel);
         panel.add(title);

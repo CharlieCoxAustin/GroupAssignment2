@@ -7,8 +7,8 @@ public abstract class User {
     String name;
     int id; 
     String address;
-    Vector fineVector = new Vector();
-    Vector rentedItems = new Vector();
+    Vector<overdueFine> fineVector = new Vector<>();
+    Vector<item> rentedItems = new Vector<>();
     int numberRentals;
     int age;
     
@@ -52,6 +52,26 @@ public abstract class User {
     public int getAge()
     {
         return age; 
+    }
+    
+    public float getFines()
+    {
+        float fineTotal = 0;
+        
+        for(overdueFine fine : fineVector)
+        {
+            fineTotal += fine.currentOwed;
+        }
+        
+        return fineTotal;
+    }
+    
+    public void payFines()
+    {
+        for(overdueFine fine : fineVector)
+        {
+            fineVector.remove(fine); 
+        }
     }
     
     

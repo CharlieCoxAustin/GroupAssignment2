@@ -1,12 +1,13 @@
 
 public class currentBestSeller extends item{
     
-    public currentBestSeller(int number, String itemTitle, String date)
+    String checkoutDate;
+    
+    public currentBestSeller(int number, String itemTitle)
     {
         checkedOut = false;
         itemNumber = number;
         title = itemTitle;
-        checkoutDate = date;
         requested = false;
         renewed = false;
         value = 0;

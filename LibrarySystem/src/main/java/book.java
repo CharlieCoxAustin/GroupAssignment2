@@ -1,13 +1,13 @@
 
 public class book extends item {
     
+        String checkoutDate;
         
-    public book(int number, String itemTitle, String date)
+    public book(int number, String itemTitle)
     {
         checkedOut = false;
         itemNumber = number;
         title = itemTitle;
-        checkoutDate = date;
         requested = false;
         renewed = false;
         value = 0;

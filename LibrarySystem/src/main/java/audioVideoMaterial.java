@@ -1,12 +1,12 @@
 
 public class audioVideoMaterial extends item{
+    String checkoutDate;
     
-    public audioVideoMaterial(int number, String itemTitle, String date)
+    public audioVideoMaterial(int number, String itemTitle)
     {
         checkedOut = false;
         itemNumber = number;
         title = itemTitle;
-        checkoutDate = date;
         requested = false;
         renewed = false;
         value = 0;
