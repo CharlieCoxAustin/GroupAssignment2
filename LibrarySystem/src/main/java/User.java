@@ -1,11 +1,14 @@
 
+import java.util.Vector;
+
+
 public abstract class User {
     
     String name;
     int id; 
     String address;
-    //vector fineVector = new vector();
-    //vector rentedItems = new vector();
+    Vector fineVector = new Vector();
+    Vector rentedItems = new Vector();
     int numberRentals;
     int age;
     

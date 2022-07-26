@@ -8,6 +8,7 @@ public abstract class item {
     Boolean requested;
     Boolean renewed;
     float value;
+    int checkoutTime;
     
     //setters n getters!
     
@@ -44,6 +45,16 @@ public abstract class item {
     public void setValue(float itemValue)
     {
         value = itemValue;
+    }
+    
+    public void setCheckoutTime(int number)
+    {
+        checkoutTime = number;
+    }
+    
+    public int getCheckoutTime()
+    {
+        return checkoutTime;
     }
     
     public Boolean getCheckedOut()
