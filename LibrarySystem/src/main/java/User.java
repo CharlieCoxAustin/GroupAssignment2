@@ -31,22 +31,22 @@ public abstract class User {
         address = userAddress;
     }
     
-    public String getName(String userName)
+    public String getName()
     {
-        return userName;
+        return name;
     }
     
-    public int getID(int userID)
+    public int getID()
     {
-        return userID;
+        return id;
     }
     
-    public String getAddress(String userAddress)
+    public String getAddress()
     {
-        return userAddress;
+        return address;
     }
     
-    public int getAge(int userAge)
+    public int getAge()
     {
         return age; 
     }

@@ -23,14 +23,14 @@ public class overdueFine {
         daysOverdue = days;
     }
     
-    public float getCurrentOwed(float owed)
+    public float getCurrentOwed()
     {
-        return owed;
+        return currentOwed;
     }
     
-    public int getDaysOverdue(int days)
+    public int getDaysOverdue()
     {
-        return days;
+        return daysOverdue;
     }
     
     //relevant functions!
