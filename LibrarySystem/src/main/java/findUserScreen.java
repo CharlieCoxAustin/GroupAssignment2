@@ -33,7 +33,7 @@ public class findUserScreen {
                  String userName = userNameField.getText();
                  if(system.findUser(userName))
                  {
-                     userScreen user = new userScreen(system.userMap.get(userName)); 
+                     userScreen user = new userScreen(system.userMap.get(userName), system); 
                      frame.dispose();
                  }
                  else

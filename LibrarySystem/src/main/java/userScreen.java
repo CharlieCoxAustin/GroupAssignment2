@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class userScreen {
     
-    public userScreen(User person)
+    public userScreen(User person, librarySystem library)
     {
         JFrame frame = new JFrame(person.getName());
         JPanel panel = new JPanel();
@@ -14,7 +14,7 @@ public class userScreen {
         JButton payFine = new JButton("Pay Fines");
         JButton returnItems = new JButton("Return Items");
         JLabel userName = new JLabel("User name: " + person.getName());
-        JLabel fineTotal = new JLabel("Total Fines: " + person.getFines());
+        JLabel fineTotal = new JLabel("Total Fines: $" + person.getFines());
         JLabel address = new JLabel("Address: " + person.getAddress());
         
         frame.setSize(400,400);
@@ -33,7 +33,24 @@ public class userScreen {
              {
                  person.payFines();
                  finePaidScreen paidFines = new finePaidScreen();
-                 fineTotal.setText("Total Fines: " + person.getFines());
+                 fineTotal.setText("Total Fines: $" + person.getFines());
+             }
+        });
+        
+        checkoutItem.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 findItemScreen newItem = new findItemScreen(library);
+             }
+        });
+        
+        returnItems.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 person.returnAllItems();
+                 itemsReturnedScreen itemsReturned = new itemsReturnedScreen();
              }
         });
         

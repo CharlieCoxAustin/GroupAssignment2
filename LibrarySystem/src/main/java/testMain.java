@@ -18,7 +18,9 @@ public class testMain {
         fine.addDay();
         fine.addDay();
         fine.addDay();
-        userScreen testScreen = new userScreen(Steve);
+        userScreen testScreen = new userScreen(Steve, library);
+        
+        library.printAllItems();
         
         //addUserScreen test section
         //addUserScreen testUserScreen = new addUserScreen(library);

@@ -54,6 +54,11 @@ public abstract class User {
         return age; 
     }
     
+    public void addFine(overdueFine newFine)
+    {
+        fineVector.add(newFine);
+    }
+    
     public float getFines()
     {
         float fineTotal = 0;
@@ -66,9 +71,38 @@ public abstract class User {
         return fineTotal;
     }
     
+    public void rentItem(item rentable)
+    {
+        rentedItems.add(rentable);
+    }
+    
+    public void returnItem(item returnable)
+    {
+        rentedItems.remove(returnable);
+        returnable.setCheckedOut(false); 
+    }
+    
+    public void returnAllItems()
+    {
+        for(item rentedItem : rentedItems)
+        {
+            rentedItem.setCheckedOut(false);
+            rentedItem.setCheckoutDate("not checked out");
+        }
+        rentedItems.clear();
+    }
+    
     public void payFines()
     {
         fineVector.clear();
+    }
+    
+    public void printItems()
+    {
+        for(item rentedItem : rentedItems)
+        {
+            System.out.println(rentedItem.title);
+        }
     }
     
     

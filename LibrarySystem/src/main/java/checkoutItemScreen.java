@@ -1,15 +1,18 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
-
-public class findItemScreen {
+public class checkoutItemScreen {
     
-    public findItemScreen(librarySystem library)
+    public checkoutItemScreen(librarySystem library, User person)
     {
-        JFrame frame = new JFrame("Find Item");
+        JFrame frame = new JFrame("Checkout Item");
         JPanel panel = new JPanel();
         JTextField titleField = new JTextField("Title");
         JLabel titleLabel = new JLabel("Title: ");
@@ -30,7 +33,7 @@ public class findItemScreen {
              }
         });
         
-        searchButton.addActionListener(new ActionListener()
+        searchButton.addActionListener(new ActionListener() //This is not working right now.
         {
              public void actionPerformed(ActionEvent e)
              {
@@ -39,7 +42,15 @@ public class findItemScreen {
                 if(found == true)
                 {
                     System.out.println("Found! ");
+                    item rentableItem = library.getItem(titleField.getText()); 
+                    System.out.println("Renting " + rentableItem.title);
+                    System.out.println("after renting");
                     itemFoundScreen itemFound = new itemFoundScreen();
+                    
+                    if(rentableItem.getCheckedOut() == false)
+                    { person.rentItem(rentableItem); }
+                    
+                    person.printItems();
                 }
                 else
                 {

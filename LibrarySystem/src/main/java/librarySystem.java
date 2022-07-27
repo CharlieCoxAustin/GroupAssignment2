@@ -124,7 +124,15 @@ public class librarySystem {
     
     public Boolean findItem(String itemName)
     {
-        return userMap.containsKey(itemName);
+        return itemMap.containsKey(itemName);
+    }
+    
+    public item getItem(String itemName)
+    {
+        System.out.println("getting item.");
+        item rentedItem = itemMap.get(itemName);
+        System.out.println("Item is " + rentedItem.title);
+        return itemMap.get(itemName);
     }
     
     
