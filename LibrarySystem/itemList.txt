@@ -1,3 +1,2 @@
-book burgerbuddyz fieri 99 today false false false
-book Gettysburg Shaara 865 today false false false
-book booktitle guy 11 today false false false
+book,Sense and Sensibility,Jane Austen,678,today,false,false,false
+magazine,Gettysburg,OtherDude,8027,unrentable,false,false,false

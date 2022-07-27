@@ -8,7 +8,8 @@ public class testMain {
     {
         //main screen test section
         librarySystem library = new librarySystem();
-        mainScreen libraryScreen = new mainScreen(library);
+        //mainScreen libraryScreen = new mainScreen(library);
+        library.printAllItems();
         
         //user screen test section
         //adultClass Steve = new adultClass("Steve", 11, "3535 Lakeshore Ave", 29);
@@ -19,6 +20,12 @@ public class testMain {
         
         //additemscreen test section
         //addItemScreen newItem = new addItemScreen(library);
+        
+        //finduser test section
+        //findUserScreen testFindUser = new findUserScreen(library);
+        
+        //user not found test
+        userNotFoundScreen testScreen = new userNotFoundScreen();
         
         
     }

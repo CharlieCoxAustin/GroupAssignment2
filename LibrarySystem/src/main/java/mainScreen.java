@@ -53,8 +53,8 @@ public class mainScreen {
                      library.itemMap.forEach((k, v) -> 
                      {
                          try {
-                             libraryWriter.write(v.toString() + " " + v.title + " " + v.author + " " + v.itemNumber + " " +
-                                     v.checkoutDate + " " + v.checkedOut + " " + v.renewed + " " + v.requested + "\n");
+                             libraryWriter.write(v.toString() + "," + v.title + "," + v.author + "," + v.itemNumber + "," +
+                                     v.checkoutDate + "," + v.checkedOut + "," + v.renewed + "," + v.requested + "\n");
                              } 
                              catch (IOException ex) 
                              {

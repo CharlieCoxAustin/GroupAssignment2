@@ -26,7 +26,7 @@ public class librarySystem {
         while((line = libraryReader.readLine()) != null)
         {
             System.out.println(line);
-            String[] stringArray = line.split(" ", 0);
+            String[] stringArray = line.split(",", 0);
             String type = stringArray[0];
             String title = stringArray[1];
             String author = stringArray[2];
@@ -66,6 +66,7 @@ public class librarySystem {
             
             itemMap.put(newItem.title, newItem);
             
+            
         }
         
         itemMap.forEach((k, v) ->
@@ -94,6 +95,31 @@ public class librarySystem {
     public void removeUser(User oldUser)
     {
         userMap.remove(oldUser);
+    }
+    
+    public void printAllItems()
+    {
+        itemMap.forEach((k, v) ->
+        {
+        
+          System.out.println(v.title);
+          
+        });   
+    }
+    
+    public void printAllUsers()
+    {
+        userMap.forEach((k, v) ->
+        {
+        
+          System.out.println(v.name);
+          
+        });   
+    }
+    
+    public Boolean findUser(String userName)
+    {
+        return userMap.containsKey(userName);
     }
     
     
