@@ -14,6 +14,7 @@ public class referenceBook extends item{
         author = itemAuthor;
         checkedoutBy = "nobody";
         rentable = false;
+        daysRented = 0;
         
     }
     

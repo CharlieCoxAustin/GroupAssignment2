@@ -15,6 +15,7 @@ public class currentBestSeller extends item{
         author = itemAuthor;
         checkedoutBy = "nobody";
         rentable = true;
+        daysRented = 0;
         
     }
     

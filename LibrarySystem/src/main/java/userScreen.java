@@ -20,6 +20,7 @@ public class userScreen {
         JLabel userID = new JLabel("User ID: " + person.getID());
         JLabel itemsRentedLabel = new JLabel("Items Rented");
         JTextArea itemsRentedArea = new JTextArea();
+        JButton renewItems = new JButton("Renew Items");
         
         
         frame.setSize(400,400);
@@ -33,6 +34,7 @@ public class userScreen {
         userID.setBounds(180, 20, 150, 30);
         itemsRentedLabel.setBounds(20, 180, 150, 30);
         itemsRentedArea.setBounds(20, 220, 200, 120);
+        renewItems.setBounds(180, 140, 150, 30);
         
         //makin buttons work
         payFine.addActionListener(new ActionListener()
@@ -71,6 +73,7 @@ public class userScreen {
         panel.add(userID);
         panel.add(itemsRentedLabel);
         panel.add(itemsRentedArea);
+        panel.add(renewItems);
         
         
         //
@@ -80,7 +83,14 @@ public class userScreen {
         
         for(item rentedItem : person.rentedItems)
         {
-            itemsRentedArea.append(rentedItem.getTitle() + "\n");
+            if(rentedItem.getRequested() == false)
+            {
+               itemsRentedArea.append(rentedItem.getTitle() + "\n");
+            }
+            else if(rentedItem.getRequested())
+            {
+               itemsRentedArea.append(rentedItem.getTitle() + "    Requested! \n");
+            }
         }
     }
     

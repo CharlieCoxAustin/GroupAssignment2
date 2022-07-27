@@ -12,6 +12,7 @@ public abstract class item {
     String author;
     String checkedoutBy;
     Boolean rentable;
+    int daysRented;
     
     
     //setters n getters!
@@ -66,6 +67,11 @@ public abstract class item {
         author = name;
     }
     
+    public void setDaysRented(int number)
+    {
+        daysRented = number;
+    }
+    
     public int getCheckoutTime()
     {
         return checkoutTime;
@@ -114,6 +120,16 @@ public abstract class item {
     public String getAuthor()
     {
         return author;
+    }
+    
+    public int getDaysRented()
+    {
+        return daysRented;
+    }
+    
+    public void addDay()
+    {
+        daysRented++;
     }
     
     

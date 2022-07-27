@@ -16,6 +16,7 @@ public class book extends item {
         checkoutTime = 21;
         checkedoutBy = "nobody";
         rentable = true;
+        daysRented = 0;
         
     }
     

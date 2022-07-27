@@ -94,7 +94,12 @@ public abstract class User {
     public void returnItem(item returnable)
     {
         rentedItems.remove(returnable);
-        returnable.setCheckedOut(false); 
+        returnable.setCheckedOut(false);
+        returnable.setRenewed(false);
+        returnable.setRequested(false);
+        returnable.setCheckoutDate("Not checked out");
+        returnable.setCheckedoutBy("nobody");
+        
     }
     
     public void returnAllItems()
@@ -103,7 +108,9 @@ public abstract class User {
         {
             rentedItem.setCheckedOut(false);
             rentedItem.setCheckoutDate("not checked out");
-            rentedItem.setCheckedoutBy("nobody"); 
+            rentedItem.setCheckedoutBy("nobody");
+            rentedItem.setRequested(false); 
+            rentedItem.setRenewed(false);
         }
         rentedItems.clear();
     }
