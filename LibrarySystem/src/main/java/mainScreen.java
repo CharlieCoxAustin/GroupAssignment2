@@ -101,7 +101,7 @@ public class mainScreen {
         {
             public void actionPerformed(ActionEvent e)
             {
-                //will open screen to find a user.
+                findUserScreen findUser = new findUserScreen(library);
             }
         });
         

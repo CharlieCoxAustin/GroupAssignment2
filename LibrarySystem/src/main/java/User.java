@@ -68,10 +68,7 @@ public abstract class User {
     
     public void payFines()
     {
-        for(overdueFine fine : fineVector)
-        {
-            fineVector.remove(fine); 
-        }
+        fineVector.clear();
     }
     
     

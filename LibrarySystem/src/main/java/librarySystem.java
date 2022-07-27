@@ -122,5 +122,10 @@ public class librarySystem {
         return userMap.containsKey(userName);
     }
     
+    public Boolean findItem(String itemName)
+    {
+        return userMap.containsKey(itemName);
+    }
+    
     
 }

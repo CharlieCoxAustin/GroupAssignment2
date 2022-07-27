@@ -1,4 +1,6 @@
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
@@ -23,6 +25,17 @@ public class userScreen {
         userName.setBounds(20, 20, 150, 30);
         fineTotal.setBounds(20, 40, 150, 30);
         address.setBounds(20, 60, 200, 30);
+        
+        //makin buttons work
+        payFine.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 person.payFines();
+                 finePaidScreen paidFines = new finePaidScreen();
+                 fineTotal.setText("Total Fines: " + person.getFines());
+             }
+        });
         
         panel.add(checkoutItem);
         panel.add(payFine);
