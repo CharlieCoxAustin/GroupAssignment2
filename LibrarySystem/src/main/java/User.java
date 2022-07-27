@@ -34,6 +34,11 @@ public abstract class User {
         address = userAddress;
     }
     
+    public void setNumRentals(int number)
+    {
+        numberRentals = number;
+    }
+    
     public String getName()
     {
         return name;
@@ -52,6 +57,11 @@ public abstract class User {
     public int getAge()
     {
         return age; 
+    }
+    
+    public int getNumberRentals()
+    {
+        return numberRentals;
     }
     
     public void addFine(overdueFine newFine)
@@ -73,8 +83,12 @@ public abstract class User {
     
     public void rentItem(item rentable)
     {
-        rentedItems.add(rentable);
-        rentable.setCheckedOut(true); 
+        if(rentable.rentable)
+        {
+           rentedItems.add(rentable);
+           rentable.setCheckedOut(true);
+           rentable.checkedoutBy = this.getName();
+        }
     }
     
     public void returnItem(item returnable)

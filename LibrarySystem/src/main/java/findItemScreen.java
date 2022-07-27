@@ -40,6 +40,8 @@ public class findItemScreen {
                 {
                     System.out.println("Found! ");
                     itemFoundScreen itemFound = new itemFoundScreen();
+                    item foundItem = library.getItem(titleField.getText());
+                    itemScreen newItemScreen = new itemScreen(foundItem);
                 }
                 else
                 {

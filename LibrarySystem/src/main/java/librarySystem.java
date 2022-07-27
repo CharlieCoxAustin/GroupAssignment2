@@ -13,9 +13,11 @@ public class librarySystem {
     
     HashMap <String, item> itemMap = new HashMap<>();
     HashMap <String, User> userMap = new HashMap<>();
+    int numUsers = 0;
+    int numItems = 0;
     
     BufferedReader libraryReader; 
-    
+    BufferedReader userReader;
         
     
     public librarySystem() throws FileNotFoundException, IOException
@@ -64,24 +66,56 @@ public class librarySystem {
             newItem.setRequested(requested);
             newItem.setCheckoutDate(checkoutDate);
             
-            itemMap.put(newItem.title, newItem);
+            this.addItem(newItem);
+            
+            
+            
             
             //need to add code to open the userFile and also think of a way to save what books are rented.
-            
-            
-        }
+        }    
+           libraryReader.close();
+           
+           this.printAllItems();
         
-        itemMap.forEach((k, v) ->
-        { 
-            System.out.println(v.title); 
-        }); 
         
-        libraryReader.close();
+            userReader = new BufferedReader(new FileReader("userList.txt"));
+            System.out.println("user file opened");
+            String userLine;
+            while((userLine = userReader.readLine()) != null)
+            {
+                System.out.println(userLine);
+                String[] userStringArray = userLine.split(",", 0);
+                String userName = userStringArray[0];
+                String userAddress = userStringArray[1];
+                int userAge = Integer.parseInt(userStringArray[2]);
+                int userID = Integer.parseInt(userStringArray[3]);
+                int userNumRentals = Integer.parseInt(userStringArray[4]);
+                User newUser;
+                
+                if(userAge < 12)
+                {
+                    newUser = new childClass(userName, userID, userAddress, userAge);
+                }
+                else
+                {
+                    newUser = new adultClass(userName, userID, userAddress, userAge);
+                }
+                
+                newUser.setNumRentals(userNumRentals); 
+                
+                this.addUser(newUser);   
+            }
+        
+        
+        this.printAllUsers();
+        
+        userReader.close();
     }
     
     public void addItem(item itemAdd)
     {
         itemMap.put(itemAdd.getTitle(), itemAdd);
+        ++numItems;
     }
     
     public void removeItem(item itemRemove)
@@ -92,6 +126,7 @@ public class librarySystem {
     public void addUser(User newUser)
     {
         userMap.put(newUser.getName() , newUser);
+        ++numUsers;
     }
     
     public void removeUser(User oldUser)
@@ -135,6 +170,26 @@ public class librarySystem {
         item rentedItem = itemMap.get(itemName);
         System.out.println("Item is " + rentedItem.title);
         return itemMap.get(itemName);
+    }
+    
+    public void setNumUsers(int num)
+    {
+        numUsers = num;
+    }
+    
+    public int getNumUsers()
+    {
+        return numUsers;
+    }
+    
+    public void setNumItems(int i)
+    {
+        numItems = i;
+    }
+    
+    public int getNumItems()
+    {
+        return numItems;
     }
     
     

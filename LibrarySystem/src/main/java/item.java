@@ -10,6 +10,8 @@ public abstract class item {
     float value;
     int checkoutTime;
     String author;
+    String checkedoutBy;
+    Boolean rentable;
     
     //setters n getters!
     
@@ -53,6 +55,16 @@ public abstract class item {
         checkoutTime = number;
     }
     
+    public void setCheckedoutBy(User person)
+    {
+        checkedoutBy = person.getName();
+    }
+    
+    public void setAuthor(String name)
+    {
+        author = name;
+    }
+    
     public int getCheckoutTime()
     {
         return checkoutTime;
@@ -91,6 +103,16 @@ public abstract class item {
     public float getValue()
     {
         return value;
+    }
+    
+    public String getCheckedoutBy()
+    {
+        return checkedoutBy;
+    }
+    
+    public String getAuthor()
+    {
+        return author;
     }
     
 }

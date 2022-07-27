@@ -12,14 +12,14 @@ public class addUserScreen {
         JPanel panel = new JPanel();
         JLabel nameLabel = new JLabel("Name: ");
         JLabel addressLabel = new JLabel("Address: ");
-        JLabel idLabel = new JLabel("ID: ");
+        //JLabel idLabel = new JLabel("ID: ");
         JLabel ageLabel = new JLabel("age: ");
         JButton addUser = new JButton("Add User");
         JButton cancel = new JButton("Cancel");
         JTextField nameField = new JTextField("name");
         JTextField addressField = new JTextField("address");
         JTextField ageField = new JTextField("age");
-        JTextField idField = new JTextField("ID Number");
+        //JTextField idField = new JTextField("ID Number");
         
         
         panel.setLayout(null);
@@ -32,8 +32,8 @@ public class addUserScreen {
         ageField.setBounds(80, 120, 150, 30);
         addUser.setBounds(20, 230, 100, 30);
         cancel.setBounds(130, 230, 100, 30);
-        idLabel.setBounds(20, 170, 50, 30);
-        idField.setBounds(80, 170, 150, 30);
+        //idLabel.setBounds(20, 170, 50, 30);
+        //idField.setBounds(80, 170, 150, 30);
         
         addUser.addActionListener(new ActionListener()
         {
@@ -43,8 +43,8 @@ public class addUserScreen {
                 int age = Integer.parseInt(ageText); 
                 String address = addressField.getText();
                 String name = nameField.getText();
-                String idText = idField.getText();
-                int id = Integer.parseInt(idText);
+                //String idText = idField.getText(); 
+                int id = system.getNumUsers();
                 
                 
                 User newUser;
@@ -56,6 +56,7 @@ public class addUserScreen {
                 {
                     newUser = new adultClass(name, id, address, age);
                 }
+                
                 system.addUser(newUser);
                 
                 frame.dispose();
@@ -79,8 +80,8 @@ public class addUserScreen {
         panel.add(addUser);
         panel.add(cancel);
         panel.add(ageLabel);
-        panel.add(idLabel);
-        panel.add(idField);
+        //panel.add(idLabel);
+        //panel.add(idField);
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 

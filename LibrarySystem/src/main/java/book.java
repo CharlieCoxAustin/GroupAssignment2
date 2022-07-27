@@ -14,6 +14,8 @@ public class book extends item {
         renewed = false;
         value = 0;
         checkoutTime = 21;
+        checkedoutBy = null;
+        rentable = true;
     }
     
     @Override

@@ -12,7 +12,8 @@ public class magazine extends item{
         value = 0;
         checkoutTime = 0;
         author = itemAuthor;
-        
+        checkedoutBy = null;
+        rentable = false;
     }
     
     @Override

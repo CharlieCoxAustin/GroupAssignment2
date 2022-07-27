@@ -5,11 +5,6 @@ public class childClass extends User {
     
     public childClass(String userName, int ID, String userAddress, int userAge)
     {
-        if(userAge >= 12)
-        {
-            System.out.println("You're too old for a children's library card! \n");
-            return;
-        }
         
         this.setName(userName);
         this.setID(ID);

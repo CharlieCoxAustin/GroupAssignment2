@@ -38,7 +38,7 @@ public class findUserScreen {
                  }
                  else
                  {
-                     
+                     userNotFoundScreen notFound = new userNotFoundScreen();
                  }
              }
         });
