@@ -12,8 +12,9 @@ public class referenceBook extends item{
         value = 0;
         checkoutTime = 0;
         author = itemAuthor;
-        checkedoutBy = null;
+        checkedoutBy = "nobody";
         rentable = false;
+        
     }
     
     @Override

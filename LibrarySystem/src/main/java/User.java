@@ -103,6 +103,7 @@ public abstract class User {
         {
             rentedItem.setCheckedOut(false);
             rentedItem.setCheckoutDate("not checked out");
+            rentedItem.setCheckedoutBy("nobody"); 
         }
         rentedItems.clear();
     }

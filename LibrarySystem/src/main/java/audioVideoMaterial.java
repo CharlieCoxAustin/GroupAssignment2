@@ -12,8 +12,9 @@ public class audioVideoMaterial extends item{
         value = 0;
         checkoutTime = 14;
         author = itemAuthor;
-        checkedoutBy = null;
+        checkedoutBy = "nobody";
         rentable = true;
+        
     }
     
     @Override

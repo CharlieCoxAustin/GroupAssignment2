@@ -54,7 +54,7 @@ public class mainScreen {
                      {
                          try {
                              libraryWriter.write(v.toString() + "," + v.title + "," + v.author + "," + v.itemNumber + "," +
-                                     v.checkoutDate + "," + v.checkedOut + "," + v.renewed + "," + v.requested + "\n");
+                                     v.checkoutDate + "," + v.checkedOut + "," + v.renewed + "," + v.requested + "," + v.checkedoutBy + "\n");
                              } 
                              catch (IOException ex) 
                              {
@@ -109,6 +109,9 @@ public class mainScreen {
                 frame.dispose();
              }
         });
+        
+        
+        
         
         addUser.addActionListener(new ActionListener()
         {

@@ -16,6 +16,7 @@ public class itemScreen {
         JLabel author = new JLabel("Author: " + thisItem.getAuthor());
         JLabel checkedOut = new JLabel("Checked Out: " + thisItem.getCheckedOut());
         JLabel requested = new JLabel("Requested: " + thisItem.getRequested());
+        JLabel itemNumber = new JLabel("Item #: " + thisItem.getItemNumber());
         JButton okButton = new JButton("OK");
         
         panel.setLayout(null);
@@ -23,8 +24,9 @@ public class itemScreen {
         
         title.setBounds(20, 20, 150, 30);
         author.setBounds(20, 50, 150, 30);
-        checkedOut.setBounds(20, 90, 150, 30);
-        requested.setBounds(20, 130, 150, 30);
+        checkedOut.setBounds(20, 80, 150, 30);
+        requested.setBounds(20, 110, 150, 30);
+        itemNumber.setBounds(20, 140, 150, 30);
         okButton.setBounds(100, 180, 150, 30);
         
         okButton.addActionListener(new ActionListener()
@@ -39,6 +41,7 @@ public class itemScreen {
         panel.add(author);
         panel.add(checkedOut);
         panel.add(requested);
+        panel.add(itemNumber);
         panel.add(okButton);
         
         frame.add(panel);

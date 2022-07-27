@@ -13,6 +13,7 @@ public abstract class item {
     String checkedoutBy;
     Boolean rentable;
     
+    
     //setters n getters!
     
     public void setCheckedOut(Boolean value)
@@ -55,9 +56,9 @@ public abstract class item {
         checkoutTime = number;
     }
     
-    public void setCheckedoutBy(User person)
+    public void setCheckedoutBy(String person) //changed from accepting a User as an argument
     {
-        checkedoutBy = person.getName();
+        checkedoutBy = person;
     }
     
     public void setAuthor(String name)
@@ -114,5 +115,7 @@ public abstract class item {
     {
         return author;
     }
+    
+    
     
 }

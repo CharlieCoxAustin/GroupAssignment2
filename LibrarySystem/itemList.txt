@@ -1,5 +1,4 @@
-book,Pride and Prejudice,Jane Austen,9990,today,false,false,false
-book,Grapes of Wrath,John  Steinbeck,22,not checked out,true,false,false
-book,Sense and Sensibility,Jane Austen,678,today,false,false,false
-magazine,Gettysburg,OtherDude,8027,not checked out,true,false,false
-book,Treasure Island,Stevenson,787878,today,true,false,false
+book,Sense and Sensibility,Jane Austen,2,not checked out,false,false,false,nobody
+audioVideoMaterial,Gettysburg,Shaara,0,null,false,false,false,nobody
+book,Red Badge of Courage,IDK,1,today,false,false,false,nobody
+currentBestSeller,Harry Potter and the Sorcerer's Stone,J.K. Rowling,3,null,false,false,false,nobody

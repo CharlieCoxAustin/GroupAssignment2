@@ -1,3 +1,3 @@
-Ted,123 avenue,22,0,0
-Steve,3636 butterfield dr,11,2,0
-Frank,2525 Marigold Dr,88,1,0
+Daniel,2673 Address Rd,78,2,0
+Steven,2525 Mockingbird Lane,22,0,0
+Arnold,2222 forest rd,11,1,0

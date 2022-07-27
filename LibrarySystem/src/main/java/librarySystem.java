@@ -37,6 +37,7 @@ public class librarySystem {
             Boolean checkedOut = Boolean.parseBoolean(stringArray[5]);
             Boolean renewed = Boolean.parseBoolean(stringArray[6]);
             Boolean requested = Boolean.parseBoolean(stringArray[7]);
+            String bookRenter = stringArray[8];
             
             System.out.println("file opened and read from");
             System.out.println(line);
@@ -65,6 +66,7 @@ public class librarySystem {
             newItem.setRenewed(renewed);
             newItem.setRequested(requested);
             newItem.setCheckoutDate(checkoutDate);
+            newItem.setCheckedoutBy(bookRenter);
             
             this.addItem(newItem);
             
@@ -74,7 +76,7 @@ public class librarySystem {
             //need to add code to open the userFile and also think of a way to save what books are rented.
         }    
            libraryReader.close();
-           
+           System.out.println("completed reading in items");
            this.printAllItems();
         
         
@@ -110,6 +112,29 @@ public class librarySystem {
         this.printAllUsers();
         
         userReader.close();
+        
+        //reading in values and assigning them to the users who rented them.
+        //for every item in items, if checked out is true, find the user associated with checkedoutBy,
+        //and put it in their item vector.
+        System.out.println("about to find items rented and locate renters");
+        itemMap.forEach((k, v) ->
+        {
+          System.out.println("for loop start");
+          System.out.println("values: " + v.checkedOut + ", " + v.checkedoutBy);
+          if(v.checkedOut == true && v.checkedoutBy != "nobody")
+          {
+              System.out.println("conditions met!");
+              User userRented;
+              String rentedName = v.getCheckedoutBy();
+              System.out.println("checked out by: " + rentedName);
+              userRented = userMap.get(rentedName);
+              System.out.println("user is: " + userRented.getName());
+              userRented.rentedItems.add(v);
+          }
+          
+        }); 
+        
+        
     }
     
     public void addItem(item itemAdd)
