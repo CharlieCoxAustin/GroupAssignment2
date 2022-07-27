@@ -74,6 +74,7 @@ public abstract class User {
     public void rentItem(item rentable)
     {
         rentedItems.add(rentable);
+        rentable.setCheckedOut(true); 
     }
     
     public void returnItem(item returnable)
@@ -99,6 +100,7 @@ public abstract class User {
     
     public void printItems()
     {
+        System.out.println("Printing items: ");
         for(item rentedItem : rentedItems)
         {
             System.out.println(rentedItem.title);

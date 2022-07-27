@@ -66,6 +66,8 @@ public class librarySystem {
             
             itemMap.put(newItem.title, newItem);
             
+            //need to add code to open the userFile and also think of a way to save what books are rented.
+            
             
         }
         

@@ -37,7 +37,8 @@ public class checkoutItemScreen {
         {
              public void actionPerformed(ActionEvent e)
              {
-                Boolean found = library.findItem(titleField.getText());
+                Boolean found = false; 
+                found = library.findItem(titleField.getText());
                 System.out.println("Searching for " + titleField.getText());
                 if(found == true)
                 {
@@ -46,7 +47,7 @@ public class checkoutItemScreen {
                     System.out.println("Renting " + rentableItem.title);
                     System.out.println("after renting");
                     itemFoundScreen itemFound = new itemFoundScreen();
-                    
+                    System.out.println("rental status is: " + rentableItem.checkedOut);
                     if(rentableItem.getCheckedOut() == false)
                     { person.rentItem(rentableItem); }
                     

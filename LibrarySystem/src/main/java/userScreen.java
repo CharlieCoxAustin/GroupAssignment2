@@ -41,7 +41,7 @@ public class userScreen {
         {
              public void actionPerformed(ActionEvent e)
              {
-                 findItemScreen newItem = new findItemScreen(library);
+                 checkoutItemScreen newItem = new checkoutItemScreen(library, person);
              }
         });
         

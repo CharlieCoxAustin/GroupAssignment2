@@ -14,7 +14,7 @@ import javax.swing.*;
 public class mainScreen {
     
     BufferedWriter libraryWriter;
-    
+    BufferedWriter userWriter;
     
     public mainScreen(librarySystem library)
     {
@@ -76,6 +76,35 @@ public class mainScreen {
                  {
                      Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
                  }
+                 
+                 
+                 try {
+                     //Here is where we need to save all the userData into a file.
+
+                     userWriter = new BufferedWriter(new FileWriter("userList.txt"));
+                 } catch (IOException ex) {
+                     Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 
+                 library.userMap.forEach((k, v) -> 
+                     {
+                         try {
+                             userWriter.write(v.name + "," + v.address + "," + v.age + "," + v.id + "," + v.numberRentals + "\n");
+                             } 
+                             catch (IOException ex) 
+                             {
+                             Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                             }
+                     });
+                 
+                 try 
+                 {
+                     userWriter.close();
+                 } 
+                 catch (IOException ex) 
+                 {
+                     Logger.getLogger(mainScreen.class.getName()).log(Level.SEVERE, null, ex);
+                 }
                          
                 frame.dispose();
              }
@@ -109,7 +138,7 @@ public class mainScreen {
         {
             public void actionPerformed(ActionEvent e)
             {
-                //will open screen to find an Item.
+                findItemScreen findnewItem = new findItemScreen(library);
             }
         });
         

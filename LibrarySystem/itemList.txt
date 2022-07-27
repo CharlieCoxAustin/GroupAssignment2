@@ -1,2 +1,3 @@
+book,Grapes of Wrath,John  Steinbeck,22,not checked out,false,false,false
 book,Sense and Sensibility,Jane Austen,678,today,false,false,false
-magazine,Gettysburg,OtherDude,8027,unrentable,false,false,false
+magazine,Gettysburg,OtherDude,8027,not checked out,true,false,false
