@@ -12,7 +12,7 @@ import javax.swing.*;
 
 
 public class itemScreen {
-    
+    JLabel dueBackLabel;
     public itemScreen(item thisItem) throws ParseException
     {
         JFrame frame = new JFrame(thisItem.getTitle());
@@ -24,7 +24,8 @@ public class itemScreen {
         JLabel checkedOutDate = new JLabel("Date Checked Out: " + thisItem.getCheckoutDate());
         
         
-        JLabel dueBackLabel = null;
+        dueBackLabel = new JLabel();
+        
         if(thisItem.getCheckedOut())
         {
             
@@ -42,7 +43,7 @@ public class itemScreen {
             
            System.out.println("Days rented: " + dayDifference);
             
-           thisItem.setDaysRented(dayDifference);
+           thisItem.setDaysRented(dayDifference); 
            
            if((thisItem.checkoutTime - thisItem.daysRented) >= 0)
             {
@@ -65,7 +66,7 @@ public class itemScreen {
         
         
         panel.setLayout(null);
-        frame.setSize(340,340);
+        frame.setSize(360,350);
         
         title.setBounds(20, 20, 150, 30);
         author.setBounds(20, 50, 150, 30);
@@ -75,7 +76,7 @@ public class itemScreen {
         requested.setBounds(20, 170, 150, 30);
         itemNumber.setBounds(20, 200, 150, 30);
         valueLabel.setBounds(20, 230, 150, 30);
-        okButton.setBounds(75, 260, 150, 30);
+        okButton.setBounds(180, 260, 150, 30);
         
         okButton.addActionListener(new ActionListener()
         {
@@ -94,6 +95,54 @@ public class itemScreen {
         panel.add(okButton);
         panel.add(dueBackLabel);
         panel.add(checkedOutDate);
+        
+        // add refresh button here
+        JButton refreshButton = new JButton("Refresh");
+        refreshButton.setBounds(20, 260, 150, 30);
+        panel.add(refreshButton);
+        
+        refreshButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                checkedOut.setText("Checked Out: " + thisItem.getCheckedOut());
+                checkedOutDate.setText("Date Checked Out: " + thisItem.getCheckoutDate());
+                requested.setText("Requested: " + thisItem.getRequested());
+                
+                if(thisItem.getCheckedOut())
+                {
+                    Calendar calendar = Calendar.getInstance();
+                    int month = calendar.get(Calendar.MONTH) + 1;
+                    String monthString = "" + month;
+                    if(month < 10)
+                    {
+                        monthString = ("0" + (month));
+                    }
+                    String today = calendar.get(Calendar.YEAR) + "-" + monthString + "-" + calendar.get(Calendar.DATE);
+                    LocalDate dayRented = LocalDate.parse(thisItem.getCheckoutDate());
+                    LocalDate todaysDate = LocalDate.parse(today);
+                    
+                    if((thisItem.checkoutTime - thisItem.daysRented) >= 0)
+                    {
+                         dueBackLabel.setText("Due back in: " + (thisItem.checkoutTime - thisItem.daysRented) + " days");
+                    }
+                    else
+                    {
+                        dueBackLabel.setText("Overdue!");
+                    }
+                    
+                }
+                else
+                {
+                    dueBackLabel.setText("Due back in: Not checked out");
+                }
+                
+                
+                
+                
+            }
+        });
+        
         
         frame.add(panel);
         frame.setLocationRelativeTo(null); 

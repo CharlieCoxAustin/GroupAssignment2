@@ -1,6 +1,9 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import javax.swing.*;
 
 
@@ -110,7 +113,7 @@ public class userScreen {
                         }
                         else if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
                         {
-                            itemsRentedArea.append(rentedItem.getTitle() + " Overdue! ");
+                            itemsRentedArea.append(rentedItem.getTitle() + " Overdue! \n");
                         }
                     } 
                  
@@ -139,25 +142,40 @@ public class userScreen {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         
+        Calendar calendar = Calendar.getInstance();
+           int month = calendar.get(Calendar.MONTH) + 1;
+           String monthString = "" + month;
+           if(month < 10)
+           {
+               monthString = ("0" + (month));
+           }
+           String today = calendar.get(Calendar.YEAR) + "-" + monthString + "-" + calendar.get(Calendar.DATE);
+           LocalDate todaysDate = LocalDate.parse(today);
+           LocalDate dayRented;
+        
         for(item rentedItem : person.rentedItems)
-                    {
-                        if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
-                        {
-                           itemsRentedArea.append(rentedItem.getTitle() + "\n");
-                        }
-                        else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
-                        {
-                           itemsRentedArea.append(rentedItem.getTitle() + "  Requested! \n");
-                        }
+        {    
+            dayRented = LocalDate.parse(rentedItem.getCheckoutDate());
+            int dayDifference = (int) ChronoUnit.DAYS.between(dayRented, todaysDate);
+            rentedItem.setDaysRented(dayDifference);
+            
+                if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
+                {
+                    itemsRentedArea.append(rentedItem.getTitle() + "\n");
+                }
+                else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
+                {
+                   itemsRentedArea.append(rentedItem.getTitle() + "  Requested! \n");
+                }
                         else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
-                        {
-                            itemsRentedArea.append(rentedItem.getTitle() + "  Requested! Overdue! \n");
-                        }
+                {
+                    itemsRentedArea.append(rentedItem.getTitle() + "  Requested! Overdue! \n");
+                }
                         else if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
-                        {
-                            itemsRentedArea.append(rentedItem.getTitle() + " Overdue! ");
-                        }
-                    } 
+                {
+                    itemsRentedArea.append(rentedItem.getTitle() + " Overdue! \n");
+                }
+        } 
     }
     
     
