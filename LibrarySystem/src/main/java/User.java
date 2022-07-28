@@ -129,6 +129,22 @@ public abstract class User {
         }
     }
     
+    public item findItem(String itemName)
+    {
+        for(item rentedItem: rentedItems)
+        {
+            if(rentedItem.getTitle() == itemName)
+            {
+                return rentedItem;
+            }
+        }
+        
+        return null;
+        
+    }
+    
+    
+    
     
     
 }

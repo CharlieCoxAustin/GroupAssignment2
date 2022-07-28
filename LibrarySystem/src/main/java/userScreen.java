@@ -64,6 +64,14 @@ public class userScreen {
              }
         });
         
+        renewItems.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 renewItemsScreen renewItem = new renewItemsScreen(person);
+             }
+        });
+        
         panel.add(checkoutItem);
         panel.add(payFine);
         panel.add(returnItems);

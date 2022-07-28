@@ -1,4 +1,4 @@
-book,Sense and Sensibility,Jane Austen,2,not checked out,false,false,false,nobody
+book,Sense and Sensibility,Jane Austen,2,not checked out,true,true,false,Arnold
 audioVideoMaterial,Gettysburg,Shaara,0,null,false,false,false,nobody
 book,Red Badge of Courage,IDK,1,today,false,false,false,nobody
 currentBestSeller,Harry Potter and the Sorcerer's Stone,J.K. Rowling,3,null,false,false,false,nobody
