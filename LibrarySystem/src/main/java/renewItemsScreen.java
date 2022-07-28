@@ -1,6 +1,7 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.Vector;
 import javax.swing.*; 
 
@@ -47,8 +48,17 @@ public class renewItemsScreen {
                item returnItem = person.findItem(titleName);
                if(returnItem.getRequested() == false && returnItem.getRenewed() == false)
                {
+                   Calendar calendar = Calendar.getInstance();
+                   int month = calendar.get(Calendar.MONTH) + 1;
+                   String monthString = "" + month;
+                   if(month < 10)
+                   {
+                       monthString = ("0" + (month));
+                    }
+                   String date = calendar.get(Calendar.YEAR) + "-" + monthString + "-" + calendar.get(Calendar.DATE);
                    returnItem.setRenewed(true);
                    returnItem.setDaysRented(0);
+                   returnItem.setCheckoutDate(date);
                }
                else
                {
