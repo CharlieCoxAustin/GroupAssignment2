@@ -3,12 +3,16 @@ public class overdueFine {
     
     float currentOwed;
     int daysOverdue;
+    String itemTitle;
+    String userName;
     //item itemOverdue;
     
-    public overdueFine()
+    public overdueFine(String title, String name)
     {
         currentOwed = 0;
         daysOverdue = 0;
+        itemTitle = title;
+        userName = name;
     }
     
     //setters n getters!

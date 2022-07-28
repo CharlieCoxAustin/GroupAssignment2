@@ -16,9 +16,9 @@ public class addUserScreen {
         JLabel ageLabel = new JLabel("age: ");
         JButton addUser = new JButton("Add User");
         JButton cancel = new JButton("Cancel");
-        JTextField nameField = new JTextField("name");
-        JTextField addressField = new JTextField("address");
-        JTextField ageField = new JTextField("age");
+        JTextField nameField = new JTextField();
+        JTextField addressField = new JTextField();
+        JTextField ageField = new JTextField();
         //JTextField idField = new JTextField("ID Number");
         
         

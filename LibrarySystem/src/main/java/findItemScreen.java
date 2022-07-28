@@ -11,7 +11,7 @@ public class findItemScreen {
     {
         JFrame frame = new JFrame("Find Item");
         JPanel panel = new JPanel();
-        JTextField titleField = new JTextField("Title");
+        JTextField titleField = new JTextField();
         JLabel titleLabel = new JLabel("Title: ");
         JButton searchButton = new JButton("Search");
         JButton cancel = new JButton("Cancel");

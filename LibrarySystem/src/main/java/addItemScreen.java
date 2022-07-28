@@ -15,13 +15,13 @@ public class addItemScreen {
         JFrame frame = new JFrame("New Item");
         JPanel panel = new JPanel();
         JLabel titleLabel = new JLabel("Title: ");
-        JTextField titleField = new JTextField("Title");
+        JTextField titleField = new JTextField();
         //JLabel itemNumberLabel = new JLabel("Item Number: ");
         //JTextField itemNumberField = new JTextField("Item #");
         JButton addItem = new JButton("Add Item");
         JButton cancel = new JButton("Cancel");
         JLabel authorLabel = new JLabel("Author");
-        JTextField authorField = new JTextField("author");
+        JTextField authorField = new JTextField();
         
         
         //setting up combo box for drop down

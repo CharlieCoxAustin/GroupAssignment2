@@ -14,7 +14,7 @@ public class checkoutItemScreen {
     {
         JFrame frame = new JFrame("Checkout Item");
         JPanel panel = new JPanel();
-        JTextField titleField = new JTextField("Title");
+        JTextField titleField = new JTextField();
         JLabel titleLabel = new JLabel("Title: ");
         JButton searchButton = new JButton("Search");
         JButton cancel = new JButton("Cancel");

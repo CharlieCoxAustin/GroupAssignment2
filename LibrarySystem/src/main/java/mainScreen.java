@@ -32,11 +32,11 @@ public class mainScreen {
         //setting boundaries
         panel.setLayout(null);
         frame.setSize(400, 400);
-        addUser.setBounds(20, 100, 100, 30);
-        addItem.setBounds(140, 100, 100, 30);
-        findUser.setBounds(20, 140, 100, 30);
-        findItem.setBounds(140, 140, 100, 30);
-        quit.setBounds(260, 100, 100, 30);
+        addUser.setBounds(80, 180, 100, 30);
+        addItem.setBounds(200, 180, 100, 30);
+        findUser.setBounds(25, 100, 150, 30);
+        findItem.setBounds(205, 100, 150, 30);
+        quit.setBounds(260, 300, 100, 30);
         title.setBounds(150, 10, 100, 30);
         
         //making buttons active

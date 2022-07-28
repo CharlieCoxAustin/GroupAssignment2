@@ -12,7 +12,7 @@ public class findUserScreen {
         JFrame frame = new JFrame("Find User");
         JPanel panel = new JPanel();
         
-        JTextField userNameField = new JTextField("User Name");
+        JTextField userNameField = new JTextField();
         JLabel userNameLabel = new JLabel("User Name: ");
         JButton searchButton = new JButton("Search");
         JButton cancel = new JButton("Cancel");
