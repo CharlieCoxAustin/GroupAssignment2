@@ -52,7 +52,7 @@ public class itemScreen {
             }
             else
             {
-                dueBackLabel= new JLabel("Overdue!");
+                dueBackLabel= new JLabel("Overdue by " + (thisItem.daysRented - thisItem.checkoutTime) + " days!");
             }
         }
         else
