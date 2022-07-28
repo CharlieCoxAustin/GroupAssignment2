@@ -14,6 +14,8 @@ public class userScreen {
         JButton checkoutItem = new JButton("Checkout Item");
         JButton payFine = new JButton("Pay Fines");
         JButton returnItems = new JButton("Return Items");
+        JButton refresh = new JButton("Refresh");
+        JButton close = new JButton("Close");
         JLabel userName = new JLabel("User name: " + person.getName());
         JLabel fineTotal = new JLabel("Total Fines: $" + person.getFines());
         JLabel address = new JLabel("Address: " + person.getAddress());
@@ -35,6 +37,8 @@ public class userScreen {
         itemsRentedLabel.setBounds(20, 180, 150, 30);
         itemsRentedArea.setBounds(20, 220, 200, 120);
         renewItems.setBounds(180, 140, 150, 30);
+        refresh.setBounds(240, 220, 100, 30);
+        close.setBounds(240, 300, 100, 30);
         
         //makin buttons work
         payFine.addActionListener(new ActionListener()
@@ -60,6 +64,30 @@ public class userScreen {
              public void actionPerformed(ActionEvent e)
              {
                  returnItemsScreen returnScreen = new returnItemsScreen(person);
+             }
+        });
+        
+        renewItems.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 renewItemsScreen renewItem = new renewItemsScreen(person);
+             }
+        });
+        
+        close.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 frame.dispose();
+             }
+        });
+        
+        refresh.addActionListener(new ActionListener()
+        {
+             public void actionPerformed(ActionEvent e)
+             {
+                 fineTotal.setText("Total Fines: $" + person.getFines());
                  itemsRentedArea.setText("");
                  
                  for(item rentedItem : person.rentedItems)
@@ -74,16 +102,6 @@ public class userScreen {
                         }
                     } 
                  
-                 //person.returnAllItems();
-                 //itemsReturnedScreen itemsReturned = new itemsReturnedScreen();
-             }
-        });
-        
-        renewItems.addActionListener(new ActionListener()
-        {
-             public void actionPerformed(ActionEvent e)
-             {
-                 renewItemsScreen renewItem = new renewItemsScreen(person);
              }
         });
         
@@ -97,6 +115,8 @@ public class userScreen {
         panel.add(itemsRentedLabel);
         panel.add(itemsRentedArea);
         panel.add(renewItems);
+        panel.add(refresh);
+        panel.add(close);
         
         
         //
