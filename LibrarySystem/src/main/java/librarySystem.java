@@ -40,6 +40,9 @@ public class librarySystem {
             Boolean renewed = Boolean.parseBoolean(stringArray[6]);
             Boolean requested = Boolean.parseBoolean(stringArray[7]);
             String bookRenter = stringArray[8];
+            float itemValue = Float.parseFloat(stringArray[9]);
+            int rentalDays = Integer.parseInt(stringArray[10]);
+            float itemOverdue = Float.parseFloat(stringArray[11]);
             
             System.out.println("file opened and read from");
             System.out.println(line);
@@ -48,19 +51,19 @@ public class librarySystem {
             switch(type) 
             {
                 case "book" :
-                    newItem = new book(number, title, author);
+                    newItem = new book(number, title, author, itemValue);
                     break;
                 case "audioVideoMaterial" :
-                    newItem = new audioVideoMaterial(number, title, author);
+                    newItem = new audioVideoMaterial(number, title, author, itemValue);
                     break;
                 case "currentBestSeller" :
-                    newItem = new currentBestSeller(number, title, author);
+                    newItem = new currentBestSeller(number, title, author, itemValue);
                     break;
                 case "referencebook" :
-                    newItem = new referenceBook(number, title, author);
+                    newItem = new referenceBook(number, title, author, itemValue);
                     break;    
                 case "magazine" : 
-                    newItem = new magazine(number, title, author);
+                    newItem = new magazine(number, title, author, itemValue);
                     break;
             }
             
@@ -69,6 +72,8 @@ public class librarySystem {
             newItem.setRequested(requested);
             newItem.setCheckoutDate(checkoutDate);
             newItem.setCheckedoutBy(bookRenter);
+            newItem.setDaysRented(rentalDays);
+            newItem.overdueAmount = itemOverdue;
             
             this.addItem(newItem);
             

@@ -16,8 +16,8 @@ public class addItemScreen {
         JPanel panel = new JPanel();
         JLabel titleLabel = new JLabel("Title: ");
         JTextField titleField = new JTextField();
-        //JLabel itemNumberLabel = new JLabel("Item Number: ");
-        //JTextField itemNumberField = new JTextField("Item #");
+        JLabel valueLabel = new JLabel("Value: ");
+        JTextField valueField = new JTextField();
         JButton addItem = new JButton("Add Item");
         JButton cancel = new JButton("Cancel");
         JLabel authorLabel = new JLabel("Author");
@@ -31,13 +31,13 @@ public class addItemScreen {
         //setting up dimensions
         titleLabel.setBounds(20, 20, 50, 30);
         titleField.setBounds(110, 20, 150, 30);
-        //itemNumberLabel.setBounds(20, 70, 100, 30);
-        //itemNumberField.setBounds(110, 70, 150, 30);
-        dropDown.setBounds(20, 200, 150, 30);
+        valueLabel.setBounds(20, 120, 100, 30);
+        valueField.setBounds(110, 120, 150, 30);
+        dropDown.setBounds(20, 170, 150, 30);
         addItem.setBounds(20, 250, 150, 30);
         cancel.setBounds(180, 250, 150, 30);
-        authorLabel.setBounds(20, 130, 50, 30);
-        authorField.setBounds(110, 130, 150, 30);
+        authorLabel.setBounds(20, 70, 50, 30);
+        authorField.setBounds(110, 70, 150, 30);
         
         //making buttons and dropdown work
         dropDown.addActionListener(new ActionListener()
@@ -56,29 +56,30 @@ public class addItemScreen {
                 int number = library.getNumItems();
                 String name = titleField.getText();
                 String author = authorField.getText();
+                float itemValue = Float.parseFloat(valueField.getText());
                 item newItem = null;
                 itemType = (String)dropDown.getSelectedItem();
                 
                  switch(itemType)
                  {
                      case "reference book" :
-                         newItem = new referenceBook(number, name, author); 
+                         newItem = new referenceBook(number, name, author, itemValue); 
                          break;
                      case "book" :
-                         newItem = new book(number, name, author);
+                         newItem = new book(number, name, author, itemValue);
                          break;
                      case "best seller" :
-                         newItem = new currentBestSeller(number, name, author);
+                         newItem = new currentBestSeller(number, name, author, itemValue);
                          break;
                      case "A/V item" :
-                         newItem = new audioVideoMaterial(number, name, author);
+                         newItem = new audioVideoMaterial(number, name, author, itemValue);
                          break;
                      case "magazine" :
-                         newItem = new magazine(number, name, author);
+                         newItem = new magazine(number, name, author, itemValue);
                          break;
                  }
                  
-                 library.addItem(newItem);
+                 library.addItem(newItem); 
                  
                  frame.dispose();
             }
@@ -97,8 +98,8 @@ public class addItemScreen {
         panel.setLayout(null);
         panel.add(titleLabel);
         panel.add(titleField);
-        //panel.add(itemNumberLabel);
-        //panel.add(itemNumberField);
+        panel.add(valueLabel);
+        panel.add(valueField);
         panel.add(dropDown);
         panel.add(addItem);
         panel.add(cancel);
@@ -107,6 +108,7 @@ public class addItemScreen {
         
         frame.setSize(350,350);
         frame.add(panel);
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }

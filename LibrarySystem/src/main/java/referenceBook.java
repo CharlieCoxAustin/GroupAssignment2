@@ -1,7 +1,7 @@
 
 public class referenceBook extends item{
     
-    public referenceBook(int number, String itemTitle, String itemAuthor)
+    public referenceBook(int number, String itemTitle, String itemAuthor, float itemValue)
     {
         checkedOut = false;
         itemNumber = number;
@@ -9,12 +9,13 @@ public class referenceBook extends item{
         checkoutDate = "unrentable";
         requested = false;
         renewed = false;
-        value = 0;
+        value = itemValue;
         checkoutTime = 0;
         author = itemAuthor;
         checkedoutBy = "nobody";
         rentable = false;
         daysRented = 0;
+        overdueAmount = 0;
         
     }
     

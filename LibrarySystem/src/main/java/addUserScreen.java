@@ -83,6 +83,7 @@ public class addUserScreen {
         //panel.add(idLabel);
         //panel.add(idField);
         frame.add(panel);
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         

@@ -3,7 +3,7 @@ public class book extends item {
     
         
         
-    public book(int number, String itemTitle, String itemAuthor)
+    public book(int number, String itemTitle, String itemAuthor, float itemValue)
     {
         checkedOut = false;
         itemNumber = number;
@@ -12,11 +12,12 @@ public class book extends item {
         checkoutDate = "today";
         author = itemAuthor;
         renewed = false;
-        value = 0;
+        value = itemValue;
         checkoutTime = 21;
         checkedoutBy = "nobody";
         rentable = true;
         daysRented = 0;
+        overdueAmount = 0;
         
     }
     

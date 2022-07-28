@@ -59,8 +59,23 @@ public class userScreen {
         {
              public void actionPerformed(ActionEvent e)
              {
-                 person.returnAllItems();
-                 itemsReturnedScreen itemsReturned = new itemsReturnedScreen();
+                 returnItemsScreen returnScreen = new returnItemsScreen(person);
+                 itemsRentedArea.setText("");
+                 
+                 for(item rentedItem : person.rentedItems)
+                    {
+                        if(rentedItem.getRequested() == false)
+                        {
+                           itemsRentedArea.append(rentedItem.getTitle() + "\n");
+                        }
+                        else if(rentedItem.getRequested())
+                        {
+                           itemsRentedArea.append(rentedItem.getTitle() + "    Requested! \n");
+                        }
+                    } 
+                 
+                 //person.returnAllItems();
+                 //itemsReturnedScreen itemsReturned = new itemsReturnedScreen();
              }
         });
         
@@ -86,6 +101,7 @@ public class userScreen {
         
         //
         frame.add(panel);
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         

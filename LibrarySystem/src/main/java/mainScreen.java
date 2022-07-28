@@ -52,9 +52,10 @@ public class mainScreen {
                      
                      library.itemMap.forEach((k, v) -> 
                      {
-                         try {
+                         try { //add value to this and to the boot up sequence
                              libraryWriter.write(v.toString() + "," + v.title + "," + v.author + "," + v.itemNumber + "," +
-                                     v.checkoutDate + "," + v.checkedOut + "," + v.renewed + "," + v.requested + "," + v.checkedoutBy + "\n");
+                                     v.checkoutDate + "," + v.checkedOut + "," + v.renewed + "," + v.requested + "," + v.checkedoutBy + "," + v.value 
+                                     + "," + v.daysRented + "," + v.overdueAmount + "\n");
                              } 
                              catch (IOException ex) 
                              {
@@ -153,6 +154,8 @@ public class mainScreen {
         panel.add(quit);
         frame.add(panel);
         panel.add(title);
+        
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

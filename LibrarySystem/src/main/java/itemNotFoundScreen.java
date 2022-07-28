@@ -33,6 +33,7 @@ public class itemNotFoundScreen {
         panel.add(okButton);
         
         frame.add(panel);
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
     

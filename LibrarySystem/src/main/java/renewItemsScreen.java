@@ -67,6 +67,7 @@ public class renewItemsScreen {
         panel.add(cancel);
         
         frame.add(panel);
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
     }

@@ -8,6 +8,7 @@ public class adultClass extends User {
         this.setAddress(userAddress);
         this.setAge(userAge);
         numberRentals = 0;
+        fineAmount = 0;
     }
     
 }

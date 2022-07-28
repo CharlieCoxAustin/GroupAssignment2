@@ -11,7 +11,7 @@ public class childClass extends User {
         this.setAddress(userAddress);
         this.setAge(userAge);
         
-        
+        fineAmount = 0;
         numberRentals = 0;
         
     }

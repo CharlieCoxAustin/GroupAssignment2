@@ -11,6 +11,7 @@ public abstract class User {
     Vector<item> rentedItems = new Vector<>();
     int numberRentals;
     int age;
+    float fineAmount;
     
     //setters n getters!
     
@@ -71,14 +72,7 @@ public abstract class User {
     
     public float getFines()
     {
-        float fineTotal = 0;
-        
-        for(overdueFine fine : fineVector)
-        {
-            fineTotal += fine.currentOwed;
-        }
-        
-        return fineTotal;
+        return fineAmount;
     }
     
     public void rentItem(item rentable)
@@ -99,6 +93,9 @@ public abstract class User {
         returnable.setRequested(false);
         returnable.setCheckoutDate("Not checked out");
         returnable.setCheckedoutBy("nobody");
+        fineAmount += returnable.getFee(); //add setters and getters instead of direct access.
+        returnable.overdueAmount = 0;
+        //returnable.daysRented = 0; //bring this back
         
     }
     
@@ -117,7 +114,7 @@ public abstract class User {
     
     public void payFines()
     {
-        fineVector.clear();
+        fineAmount = 0;
     }
     
     public void printItems()

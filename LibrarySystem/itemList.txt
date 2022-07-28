@@ -1,5 +1,1 @@
-book,Sense and Sensibility,Jane Austen,2,not checked out,false,false,false,nobody
-audioVideoMaterial,Gettysburg,Shaara,0,not checked out,false,false,false,nobody
-book,Red Badge of Courage,IDK,1,not checked out,true,false,false,Steve Holt
-currentBestSeller,Happy Trails,Bob Burgerson,4,null,false,false,false,nobody
-currentBestSeller,Harry Potter and the Sorcerer's Stone,J.K. Rowling,3,null,false,false,false,nobody
+book,Sense,Jane Austen,2,Not checked out,true,false,false,Arnold,1.0,25,0.0

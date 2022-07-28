@@ -13,6 +13,7 @@ public abstract class item {
     String checkedoutBy;
     Boolean rentable;
     int daysRented;
+    float overdueAmount;
     
     
     //setters n getters!
@@ -130,6 +131,17 @@ public abstract class item {
     public void addDay()
     {
         daysRented++;
+    }
+    
+    public float getFee()
+    {
+        float sumDays = daysRented - checkoutTime;
+        if(sumDays > 0)
+        {
+            return (float) (sumDays * 0.1);
+        }
+        
+        return 0;
     }
     
     

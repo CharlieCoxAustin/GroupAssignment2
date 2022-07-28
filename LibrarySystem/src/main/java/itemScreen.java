@@ -17,7 +17,9 @@ public class itemScreen {
         JLabel checkedOut = new JLabel("Checked Out: " + thisItem.getCheckedOut());
         JLabel requested = new JLabel("Requested: " + thisItem.getRequested());
         JLabel itemNumber = new JLabel("Item #: " + thisItem.getItemNumber());
+        JLabel valueLabel = new JLabel("Value: " + thisItem.getValue());
         JButton okButton = new JButton("OK");
+        
         
         panel.setLayout(null);
         frame.setSize(300,300);
@@ -27,7 +29,8 @@ public class itemScreen {
         checkedOut.setBounds(20, 80, 150, 30);
         requested.setBounds(20, 110, 150, 30);
         itemNumber.setBounds(20, 140, 150, 30);
-        okButton.setBounds(100, 180, 150, 30);
+        valueLabel.setBounds(20, 170, 150, 30);
+        okButton.setBounds(100, 200, 150, 30);
         
         okButton.addActionListener(new ActionListener()
         {
@@ -42,9 +45,11 @@ public class itemScreen {
         panel.add(checkedOut);
         panel.add(requested);
         panel.add(itemNumber);
+        panel.add(valueLabel);
         panel.add(okButton);
         
         frame.add(panel);
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         
