@@ -1,10 +1,16 @@
-audioVideoMaterial,Platoon,Stone,6,Not checked out,false,false,false,nobody,6.0,0,0.0
-currentBestSeller,Harry Potter,JK Rowling,8,Not checked out,false,false,false,nobody,4.0,0,0.0
-book,Grapes,Steinbeck,9,Not checked out,false,false,false,nobody,6.0,0,0.0
-audioVideoMaterial,Gettysburg,Shaara,5,Not checked out,false,false,false,nobody,8.0,0,0.0
 book,Baloney,Fieri,3,Not checked out,false,false,false,nobody,10.0,0,0.0
+book,The Old Man and the Sea,Ernest Hemingway,10,2022-07-28,true,false,true,Aaron,6.5,0,0.0
+currentBestSeller,The DaVinci Code,Dan Brown,15,Not checked out,false,false,false,nobody,7.5,0,0.0
+book,Clifford,Dude,4,2022-07-28,true,false,false,Aaron,4.0,0,0.0
+book,Atlas Shrugged,Ayn Rand,12,2015-07-28,true,false,false,Steven,1.5,2557,0.0
+book,Lord of the Rings,J.R.R. Tolkein,11,2022-06-25,true,false,false,Steven,7.8,33,0.0
+book,Sense,Jane Austen,2,2022-07-28,true,false,false,Aaron,1.0,0,0.0
+audioVideoMaterial,Platoon,Stone,6,2022-07-28,true,false,false,Aaron,6.0,0,0.0
+currentBestSeller,Harry Potter,JK Rowling,8,2022-07-28,true,false,false,Aaron,4.0,0,0.0
+book,Grapes,Steinbeck,9,2022-07-28,true,false,false,Angelina,6.0,0,0.0
+book,Sense and Sensibility,Jane Austen,14,Not checked out,false,false,false,nobody,5.0,0,0.0
+audioVideoMaterial,Gettysburg,Shaara,5,2022-07-28,true,false,false,Dave,8.0,0,0.0
 referencebook,World Book,N/A,2,unrentable,false,false,false,nobody,20.0,0,0.0
+book,The Great Gatsby,F. Scott Fitzgerald,14,Not checked out,false,false,false,nobody,6.6,0,0.0
 magazine,Cool Cars,Ford,1,unrentable,false,false,false,nobody,10.0,0,0.0
-book,Clifford,Dude,4,Not checked out,false,false,false,nobody,4.0,0,0.0
-audioVideoMaterial,Ponies,person,7,Not checked out,false,false,false,nobody,7.0,0,0.0
-book,Sense,Jane Austen,2,Not checked out,false,false,false,nobody,1.0,0,0.0
+audioVideoMaterial,Ponies,person,7,2022-07-23,true,false,false,Daniel,7.0,5,0.0

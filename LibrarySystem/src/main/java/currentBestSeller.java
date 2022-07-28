@@ -17,6 +17,7 @@ public class currentBestSeller extends item{
         rentable = true;
         daysRented = 0;
         overdueAmount = 0;
+        checkoutDate = "Not checked out";
         
     }
     

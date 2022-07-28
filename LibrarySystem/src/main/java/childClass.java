@@ -35,7 +35,7 @@ public class childClass extends User {
     @Override
     public void rentItem(item rentable)
     {
-        if(numberRentals < maxRentals)
+        if(numberRentals <= maxRentals)
         {
             if(rentable.rentable)
             {

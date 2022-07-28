@@ -9,7 +9,7 @@ public class book extends item {
         itemNumber = number;
         title = itemTitle;
         requested = false;
-        checkoutDate = "today";
+        checkoutDate = "Not checked out";
         author = itemAuthor;
         renewed = false;
         value = itemValue;

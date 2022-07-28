@@ -20,6 +20,7 @@ public class itemScreen {
         
         JLabel title = new JLabel("Title: " + thisItem.getTitle());
         JLabel author = new JLabel("Author: " + thisItem.getAuthor());
+        JLabel itemType = new JLabel(thisItem.toString());
         JLabel checkedOut = new JLabel("Checked Out: " + thisItem.getCheckedOut());
         JLabel checkedOutDate = new JLabel("Date Checked Out: " + thisItem.getCheckoutDate());
         
@@ -61,22 +62,24 @@ public class itemScreen {
         
         JLabel requested = new JLabel("Requested: " + thisItem.getRequested());
         JLabel itemNumber = new JLabel("Item #: " + thisItem.getItemNumber());
-        JLabel valueLabel = new JLabel("Value: " + thisItem.getValue());
+        JLabel valueLabel = new JLabel("Value: $" + thisItem.getValue());
         JButton okButton = new JButton("OK");
         
         
         panel.setLayout(null);
-        frame.setSize(360,350);
+        frame.setSize(360,370);
         
         title.setBounds(20, 20, 150, 30);
         author.setBounds(20, 50, 150, 30);
-        checkedOut.setBounds(20, 80, 150, 30);
-        checkedOutDate.setBounds(20, 110, 250, 30);
-        dueBackLabel.setBounds(20, 140, 250, 30);
-        requested.setBounds(20, 170, 150, 30);
-        itemNumber.setBounds(20, 200, 150, 30);
-        valueLabel.setBounds(20, 230, 150, 30);
-        okButton.setBounds(180, 260, 150, 30);
+        itemType.setBounds(20, 80, 150, 30);
+        checkedOut.setBounds(20, 110, 150, 30);
+        checkedOutDate.setBounds(20, 140, 250, 30);
+        dueBackLabel.setBounds(20, 170, 250, 30);
+        requested.setBounds(20, 200, 150, 30);
+        itemNumber.setBounds(20, 230, 150, 30);
+        valueLabel.setBounds(20, 260, 150, 30);
+        okButton.setBounds(180, 290, 150, 30);
+        
         
         okButton.addActionListener(new ActionListener()
         {
@@ -88,6 +91,7 @@ public class itemScreen {
         
         panel.add(title);
         panel.add(author);
+        panel.add(itemType);
         panel.add(checkedOut);
         panel.add(requested);
         panel.add(itemNumber);
@@ -98,7 +102,7 @@ public class itemScreen {
         
         // add refresh button here
         JButton refreshButton = new JButton("Refresh");
-        refreshButton.setBounds(20, 260, 150, 30);
+        refreshButton.setBounds(20, 290, 150, 30);
         panel.add(refreshButton);
         
         refreshButton.addActionListener(new ActionListener()

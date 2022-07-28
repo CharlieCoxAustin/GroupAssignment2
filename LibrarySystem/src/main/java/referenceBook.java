@@ -16,6 +16,7 @@ public class referenceBook extends item{
         rentable = false;
         daysRented = 0;
         overdueAmount = 0;
+        checkoutDate = "Not checked out";
         
     }
     
