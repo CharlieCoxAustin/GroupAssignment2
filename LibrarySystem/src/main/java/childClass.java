@@ -1,4 +1,7 @@
 
+import java.util.Calendar;
+
+
 public class childClass extends User {
     
     int maxRentals = 5;
@@ -27,6 +30,49 @@ public class childClass extends User {
     public void setMaxRentals(int newNum)
     {
         maxRentals = newNum;
+    }
+    
+    @Override
+    public void rentItem(item rentable)
+    {
+        if(numberRentals < maxRentals)
+        {
+            if(rentable.rentable)
+            {
+               Calendar calendar = Calendar.getInstance();
+               int month = calendar.get(Calendar.MONTH) + 1;
+               String date = month + "/" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.YEAR);
+               rentedItems.add(rentable);
+               rentable.setCheckedOut(true);
+               rentable.checkedoutBy = this.getName();
+               rentable.setCheckoutDate(date);
+               numberRentals++;
+            }
+            else
+            {
+                itemNotRentableScreen notRentable = new itemNotRentableScreen();
+            }
+        }
+        else
+        {
+            tooManyRentalsScreen tooMany = new tooManyRentalsScreen();
+        }
+    }
+    
+    @Override
+     public void returnItem(item returnable)
+    {
+        rentedItems.remove(returnable);
+        returnable.setCheckedOut(false);
+        returnable.setRenewed(false);
+        returnable.setRequested(false);
+        returnable.setCheckoutDate("Not checked out");
+        returnable.setCheckedoutBy("nobody");
+        fineAmount += returnable.getFee(); //add setters and getters instead of direct access.
+        returnable.overdueAmount = 0;
+        returnable.daysRented = 0; //bring this back
+        numberRentals--;
+        
     }
     
 }

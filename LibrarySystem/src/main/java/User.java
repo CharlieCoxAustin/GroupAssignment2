@@ -1,4 +1,5 @@
 
+import java.util.Calendar;
 import java.util.Vector;
 
 
@@ -78,11 +79,21 @@ public abstract class User {
     
     public void rentItem(item rentable)
     {
+        
         if(rentable.rentable)
         {
+           Calendar calendar = Calendar.getInstance();
+           int month = calendar.get(Calendar.MONTH) + 1;
+           String date = month + "/" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.YEAR);
            rentedItems.add(rentable);
            rentable.setCheckedOut(true);
            rentable.checkedoutBy = this.getName();
+           rentable.setCheckoutDate(date);
+           ++numberRentals;
+        }
+        else
+        {
+            itemNotRentableScreen notRentable = new itemNotRentableScreen();
         }
     }
     
@@ -97,6 +108,7 @@ public abstract class User {
         fineAmount += returnable.getFee(); //add setters and getters instead of direct access.
         returnable.overdueAmount = 0;
         returnable.daysRented = 0; //bring this back
+        --numberRentals;
         
     }
     

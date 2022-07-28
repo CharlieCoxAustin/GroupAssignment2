@@ -1,1 +1,8 @@
+audioVideoMaterial,Platoon,Stone,6,Not checked out,false,false,false,nobody,6.0,0,0.0
+audioVideoMaterial,Gettysburg,Shaara,5,7/28/2022,true,false,false,Aaron,8.0,0,0.0
+book,Baloney,Fieri,3,Not checked out,false,false,false,nobody,10.0,0,0.0
+referencebook,World Book,N/A,2,unrentable,false,false,false,nobody,20.0,0,0.0
+magazine,Cool Cars,Ford,1,unrentable,false,false,false,nobody,10.0,0,0.0
+book,Clifford,Dude,4,Not checked out,false,false,false,nobody,4.0,0,0.0
+audioVideoMaterial,Ponies,person,7,Not checked out,false,false,false,nobody,7.0,0,0.0
 book,Sense,Jane Austen,2,Not checked out,false,false,false,nobody,1.0,0,0.0

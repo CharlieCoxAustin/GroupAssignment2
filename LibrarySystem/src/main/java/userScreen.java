@@ -22,6 +22,7 @@ public class userScreen {
         JLabel userID = new JLabel("User ID: " + person.getID());
         JLabel itemsRentedLabel = new JLabel("Items Rented");
         JLabel phoneNumberLabel = new JLabel("Phone #: " + person.phoneNumber);
+        JLabel userAgeLabel = new JLabel("Age: " + person.getAge());
         JTextArea itemsRentedArea = new JTextArea();
         JButton renewItems = new JButton("Renew Items");
         
@@ -41,6 +42,7 @@ public class userScreen {
         refresh.setBounds(240, 220, 100, 30);
         close.setBounds(240, 300, 100, 30);
         phoneNumberLabel.setBounds(180, 40, 150, 30);
+        userAgeLabel.setBounds(180, 60, 150, 30);
         
         //makin buttons work
         payFine.addActionListener(new ActionListener()
@@ -128,6 +130,7 @@ public class userScreen {
         panel.add(refresh);
         panel.add(close);
         panel.add(phoneNumberLabel);
+        panel.add(userAgeLabel);
         
         
         //
