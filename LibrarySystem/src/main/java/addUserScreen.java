@@ -12,14 +12,14 @@ public class addUserScreen {
         JPanel panel = new JPanel();
         JLabel nameLabel = new JLabel("Name: ");
         JLabel addressLabel = new JLabel("Address: ");
-        //JLabel idLabel = new JLabel("ID: ");
+        JLabel phoneNumberLabel = new JLabel("Phone #: ");
         JLabel ageLabel = new JLabel("age: ");
         JButton addUser = new JButton("Add User");
         JButton cancel = new JButton("Cancel");
         JTextField nameField = new JTextField();
         JTextField addressField = new JTextField();
         JTextField ageField = new JTextField();
-        //JTextField idField = new JTextField("ID Number");
+        JTextField phoneNumberField = new JTextField();
         
         
         panel.setLayout(null);
@@ -32,8 +32,8 @@ public class addUserScreen {
         ageField.setBounds(80, 120, 150, 30);
         addUser.setBounds(20, 230, 100, 30);
         cancel.setBounds(130, 230, 100, 30);
-        //idLabel.setBounds(20, 170, 50, 30);
-        //idField.setBounds(80, 170, 150, 30);
+        phoneNumberLabel.setBounds(20, 170, 150, 30);
+        phoneNumberField.setBounds(80, 170, 150, 30);
         
         addUser.addActionListener(new ActionListener()
         {
@@ -43,18 +43,18 @@ public class addUserScreen {
                 int age = Integer.parseInt(ageText); 
                 String address = addressField.getText();
                 String name = nameField.getText();
-                //String idText = idField.getText(); 
+                String phoneNumber = phoneNumberField.getText(); 
                 int id = system.getNumUsers();
                 
                 
                 User newUser;
                 if(age < 12) 
                 { 
-                    newUser = new childClass(name, id, address, age); 
+                    newUser = new childClass(name, id, address, age, phoneNumber); 
                 }
                 else
                 {
-                    newUser = new adultClass(name, id, address, age);
+                    newUser = new adultClass(name, id, address, age, phoneNumber);
                 }
                 
                 system.addUser(newUser);
@@ -80,8 +80,8 @@ public class addUserScreen {
         panel.add(addUser);
         panel.add(cancel);
         panel.add(ageLabel);
-        //panel.add(idLabel);
-        //panel.add(idField);
+        panel.add(phoneNumberLabel);
+        panel.add(phoneNumberField);
         frame.add(panel);
         frame.setLocationRelativeTo(null); 
         frame.setVisible(true);

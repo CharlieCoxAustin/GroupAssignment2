@@ -99,15 +99,16 @@ public class librarySystem {
                 int userAge = Integer.parseInt(userStringArray[2]);
                 int userID = Integer.parseInt(userStringArray[3]);
                 int userNumRentals = Integer.parseInt(userStringArray[4]);
+                String userPhoneNumber = userStringArray[5];
                 User newUser;
                 
                 if(userAge < 12)
                 {
-                    newUser = new childClass(userName, userID, userAddress, userAge);
+                    newUser = new childClass(userName, userID, userAddress, userAge, userPhoneNumber);
                 }
                 else
                 {
-                    newUser = new adultClass(userName, userID, userAddress, userAge);
+                    newUser = new adultClass(userName, userID, userAddress, userAge, userPhoneNumber);
                 }
                 
                 newUser.setNumRentals(userNumRentals); 

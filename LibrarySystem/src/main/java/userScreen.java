@@ -21,6 +21,7 @@ public class userScreen {
         JLabel address = new JLabel("Address: " + person.getAddress());
         JLabel userID = new JLabel("User ID: " + person.getID());
         JLabel itemsRentedLabel = new JLabel("Items Rented");
+        JLabel phoneNumberLabel = new JLabel("Phone #: " + person.phoneNumber);
         JTextArea itemsRentedArea = new JTextArea();
         JButton renewItems = new JButton("Renew Items");
         
@@ -39,6 +40,7 @@ public class userScreen {
         renewItems.setBounds(180, 140, 150, 30);
         refresh.setBounds(240, 220, 100, 30);
         close.setBounds(240, 300, 100, 30);
+        phoneNumberLabel.setBounds(180, 40, 150, 30);
         
         //makin buttons work
         payFine.addActionListener(new ActionListener()
@@ -92,13 +94,21 @@ public class userScreen {
                  
                  for(item rentedItem : person.rentedItems)
                     {
-                        if(rentedItem.getRequested() == false)
+                        if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
                         {
                            itemsRentedArea.append(rentedItem.getTitle() + "\n");
                         }
-                        else if(rentedItem.getRequested())
+                        else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
                         {
-                           itemsRentedArea.append(rentedItem.getTitle() + "    Requested! \n");
+                           itemsRentedArea.append(rentedItem.getTitle() + "  Requested! \n");
+                        }
+                        else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
+                        {
+                            itemsRentedArea.append(rentedItem.getTitle() + "  Requested! Overdue! \n");
+                        }
+                        else if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
+                        {
+                            itemsRentedArea.append(rentedItem.getTitle() + " Overdue! ");
                         }
                     } 
                  
@@ -117,6 +127,7 @@ public class userScreen {
         panel.add(renewItems);
         panel.add(refresh);
         panel.add(close);
+        panel.add(phoneNumberLabel);
         
         
         //
@@ -126,16 +137,24 @@ public class userScreen {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         
         for(item rentedItem : person.rentedItems)
-        {
-            if(rentedItem.getRequested() == false)
-            {
-               itemsRentedArea.append(rentedItem.getTitle() + "\n");
-            }
-            else if(rentedItem.getRequested())
-            {
-               itemsRentedArea.append(rentedItem.getTitle() + "    Requested! \n");
-            }
-        }
+                    {
+                        if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
+                        {
+                           itemsRentedArea.append(rentedItem.getTitle() + "\n");
+                        }
+                        else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() >= rentedItem.daysRented)
+                        {
+                           itemsRentedArea.append(rentedItem.getTitle() + "  Requested! \n");
+                        }
+                        else if(rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
+                        {
+                            itemsRentedArea.append(rentedItem.getTitle() + "  Requested! Overdue! \n");
+                        }
+                        else if(!rentedItem.getRequested() && rentedItem.getCheckoutTime() < rentedItem.daysRented)
+                        {
+                            itemsRentedArea.append(rentedItem.getTitle() + " Overdue! ");
+                        }
+                    } 
     }
     
     

@@ -12,6 +12,7 @@ public abstract class User {
     int numberRentals;
     int age;
     float fineAmount;
+    String phoneNumber;
     
     //setters n getters!
     
@@ -95,7 +96,7 @@ public abstract class User {
         returnable.setCheckedoutBy("nobody");
         fineAmount += returnable.getFee(); //add setters and getters instead of direct access.
         returnable.overdueAmount = 0;
-        //returnable.daysRented = 0; //bring this back
+        returnable.daysRented = 0; //bring this back
         
     }
     

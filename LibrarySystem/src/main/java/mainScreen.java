@@ -90,7 +90,8 @@ public class mainScreen {
                  library.userMap.forEach((k, v) -> 
                      {
                          try {
-                             userWriter.write(v.name + "," + v.address + "," + v.age + "," + v.id + "," + v.numberRentals + "\n");
+                             userWriter.write(v.name + "," + v.address + "," + v.age + "," + v.id + "," + v.numberRentals + "," + v.phoneNumber
+                                     + "\n");
                              } 
                              catch (IOException ex) 
                              {
