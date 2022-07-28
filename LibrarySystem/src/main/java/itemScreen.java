@@ -52,7 +52,15 @@ public class itemScreen {
             }
             else
             {
-                dueBackLabel= new JLabel("Overdue by " + (thisItem.daysRented - thisItem.checkoutTime) + " days!");
+                if(((thisItem.daysRented - thisItem.checkoutTime) * .1) > thisItem.getValue())
+                {
+                    dueBackLabel= new JLabel("Overdue by " + (thisItem.daysRented - thisItem.checkoutTime) + " days! Fee: $" + thisItem.getValue());
+                }
+                else
+                {
+                    dueBackLabel = new JLabel("Overdue by " + (thisItem.daysRented - thisItem.checkoutTime) + " days! Fee: $" + 
+                            String.format("%.2f", (0.1 * (thisItem.daysRented - thisItem.checkoutTime))));
+                }
             }
         }
         else

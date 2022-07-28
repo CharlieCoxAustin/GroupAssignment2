@@ -37,7 +37,7 @@ public class userScreen {
         returnItems.setBounds(20, 140, 150, 30);
         userName.setBounds(20, 20, 150, 30);
         fineTotal.setBounds(20, 40, 150, 30);
-        address.setBounds(20, 60, 200, 30);
+        address.setBounds(20, 60, 150, 30);
         userID.setBounds(180, 20, 150, 30);
         itemsRentedLabel.setBounds(20, 180, 150, 30);
         itemsRentedArea.setBounds(20, 220, 200, 120);
