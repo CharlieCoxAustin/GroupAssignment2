@@ -41,7 +41,12 @@ public class childClass extends User {
             {
                Calendar calendar = Calendar.getInstance();
                int month = calendar.get(Calendar.MONTH) + 1;
-               String date = month + "/" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.YEAR);
+           String monthString = "" + month;
+           if(month < 10)
+           {
+               monthString = ("0" + (month));
+           }
+               String date = calendar.get(Calendar.YEAR) + "-" + monthString + "-" + calendar.get(Calendar.DATE);
                rentedItems.add(rentable);
                rentable.setCheckedOut(true);
                rentable.checkedoutBy = this.getName();

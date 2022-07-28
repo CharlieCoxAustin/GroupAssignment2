@@ -1,13 +1,19 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 
 
 
 public class itemScreen {
     
-    public itemScreen(item thisItem)
+    public itemScreen(item thisItem) throws ParseException
     {
         JFrame frame = new JFrame(thisItem.getTitle());
         JPanel panel = new JPanel();
@@ -16,6 +22,42 @@ public class itemScreen {
         JLabel author = new JLabel("Author: " + thisItem.getAuthor());
         JLabel checkedOut = new JLabel("Checked Out: " + thisItem.getCheckedOut());
         JLabel checkedOutDate = new JLabel("Date Checked Out: " + thisItem.getCheckoutDate());
+        
+        
+        JLabel dueBackLabel = null;
+        if(thisItem.getCheckedOut())
+        {
+            
+           Calendar calendar = Calendar.getInstance();
+           int month = calendar.get(Calendar.MONTH) + 1;
+           String monthString = "" + month;
+           if(month < 10)
+           {
+               monthString = ("0" + (month));
+           }
+           String today = calendar.get(Calendar.YEAR) + "-" + monthString + "-" + calendar.get(Calendar.DATE);
+           LocalDate dayRented = LocalDate.parse(thisItem.getCheckoutDate());
+           LocalDate todaysDate = LocalDate.parse(today);
+           int dayDifference = (int) ChronoUnit.DAYS.between(dayRented, todaysDate);
+            
+           System.out.println("Days rented: " + dayDifference);
+            
+           thisItem.setDaysRented(dayDifference);
+           
+           if((thisItem.checkoutTime - thisItem.daysRented) >= 0)
+            {
+                dueBackLabel= new JLabel("Due back in: " + (thisItem.checkoutTime - thisItem.daysRented) + " days");
+            }
+            else
+            {
+                dueBackLabel= new JLabel("Overdue!");
+            }
+        }
+        else
+        {
+            dueBackLabel= new JLabel("Due back in: Not checked out");
+        }
+        
         JLabel requested = new JLabel("Requested: " + thisItem.getRequested());
         JLabel itemNumber = new JLabel("Item #: " + thisItem.getItemNumber());
         JLabel valueLabel = new JLabel("Value: " + thisItem.getValue());
@@ -23,16 +65,17 @@ public class itemScreen {
         
         
         panel.setLayout(null);
-        frame.setSize(320,320);
+        frame.setSize(340,340);
         
         title.setBounds(20, 20, 150, 30);
         author.setBounds(20, 50, 150, 30);
         checkedOut.setBounds(20, 80, 150, 30);
         checkedOutDate.setBounds(20, 110, 250, 30);
-        requested.setBounds(20, 140, 150, 30);
-        itemNumber.setBounds(20, 170, 150, 30);
-        valueLabel.setBounds(20, 200, 150, 30);
-        okButton.setBounds(75, 230, 150, 30);
+        dueBackLabel.setBounds(20, 140, 250, 30);
+        requested.setBounds(20, 170, 150, 30);
+        itemNumber.setBounds(20, 200, 150, 30);
+        valueLabel.setBounds(20, 230, 150, 30);
+        okButton.setBounds(75, 260, 150, 30);
         
         okButton.addActionListener(new ActionListener()
         {
@@ -49,6 +92,7 @@ public class itemScreen {
         panel.add(itemNumber);
         panel.add(valueLabel);
         panel.add(okButton);
+        panel.add(dueBackLabel);
         panel.add(checkedOutDate);
         
         frame.add(panel);

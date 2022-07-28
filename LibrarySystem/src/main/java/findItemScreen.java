@@ -1,6 +1,9 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -41,7 +44,11 @@ public class findItemScreen {
                     System.out.println("Found! ");
                     itemFoundScreen itemFound = new itemFoundScreen();
                     item foundItem = library.getItem(titleField.getText());
-                    itemScreen newItemScreen = new itemScreen(foundItem);
+                    try {
+                        itemScreen newItemScreen = new itemScreen(foundItem);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(findItemScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 else
                 {

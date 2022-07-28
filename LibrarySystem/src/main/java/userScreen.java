@@ -9,7 +9,7 @@ public class userScreen {
     public userScreen(User person, librarySystem library)
     {
         
-        JFrame frame = new JFrame(person.getName());
+        JFrame frame = new JFrame(person.getName() + "'s Library Card");
         JPanel panel = new JPanel();
         JButton checkoutItem = new JButton("Checkout Item");
         JButton payFine = new JButton("Pay Fines");
@@ -19,7 +19,7 @@ public class userScreen {
         JLabel userName = new JLabel("User name: " + person.getName());
         JLabel fineTotal = new JLabel("Total Fines: $" + person.getFines());
         JLabel address = new JLabel("Address: " + person.getAddress());
-        JLabel userID = new JLabel("User ID: " + person.getID());
+        JLabel userID = new JLabel("Card #:  " + person.getID());
         JLabel itemsRentedLabel = new JLabel("Items Rented");
         JLabel phoneNumberLabel = new JLabel("Phone #: " + person.phoneNumber);
         JLabel userAgeLabel = new JLabel("Age: " + person.getAge());
