@@ -138,7 +138,12 @@ public abstract class item {
         float sumDays = daysRented - checkoutTime;
         if(sumDays > 0)
         {
-            return (float) (sumDays * 0.1);
+            float potentialFees = (float) (sumDays * 0.1);
+            if(potentialFees > value)
+            {
+                return value;
+            }
+            return potentialFees;
         }
         
         return 0;
