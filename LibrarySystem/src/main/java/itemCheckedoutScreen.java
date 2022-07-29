@@ -13,13 +13,13 @@ public class itemCheckedoutScreen {
     {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
-        JLabel label = new JLabel("Item Checked Out");
+        JLabel label = new JLabel("Item Already Checked Out");
         JButton okButton = new JButton("OK");
         JButton requestButton = new JButton ("Request");
         
         frame.setSize(200, 200);
         panel.setLayout(null);
-        label.setBounds(45, 20, 170, 30);
+        label.setBounds(20, 20, 170, 30);
         okButton.setBounds(40, 60, 100, 30);
         requestButton.setBounds(40, 100, 100, 30);
         

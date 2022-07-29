@@ -13,7 +13,7 @@ public class tooManyRentalsScreen {
     {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
-        JLabel label = new JLabel("Too many rentals!");
+        JLabel label = new JLabel("Max items checked out!");
         JButton okButton = new JButton("OK");
         
         frame.setSize(200, 200);

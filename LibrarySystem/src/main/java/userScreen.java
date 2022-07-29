@@ -23,7 +23,7 @@ public class userScreen {
         JLabel fineTotal = new JLabel("Total Fines: $" + person.getFines());
         JLabel address = new JLabel("Address: " + person.getAddress());
         JLabel userID = new JLabel("Card #:  " + person.getID());
-        JLabel itemsRentedLabel = new JLabel("Items Rented");
+        JLabel itemsRentedLabel = new JLabel("Items Checked Out: ");
         JLabel phoneNumberLabel = new JLabel("Phone #: " + person.phoneNumber);
         JLabel userAgeLabel = new JLabel("Age: " + person.getAge());
         JTextArea itemsRentedArea = new JTextArea();
@@ -175,7 +175,12 @@ public class userScreen {
                 {
                     itemsRentedArea.append(rentedItem.getTitle() + " Overdue! \n");
                 }
-        } 
+        }
+        
+        if(person.getAge() < 12)
+        {
+            userAgeLabel.setText("Age: " + person.getAge() + " (child)");
+        }
     }
     
     

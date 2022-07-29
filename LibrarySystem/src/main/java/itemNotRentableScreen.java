@@ -13,12 +13,12 @@ public class itemNotRentableScreen {
     {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
-        JLabel label = new JLabel("Item Not Rentable");
+        JLabel label = new JLabel("Item can't be checked out");
         JButton okButton = new JButton("OK");
         
         frame.setSize(200, 200);
         panel.setLayout(null);
-        label.setBounds(35, 20, 150, 30);
+        label.setBounds(20, 20, 150, 30);
         okButton.setBounds(40, 60, 100, 30);
         
         okButton.addActionListener(new ActionListener()
